@@ -1,0 +1,55 @@
+.navbar{
+    position: fixed;
+    width: 100%;
+    background-color: white;
+    color: #000000D9;
+    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.1);
+}
+
+.navbar ul li{
+    list-style: none;
+}
+
+.navbar .inner{
+    display: flex;
+    justify-content: space-between;
+    max-width: 1280px;
+    padding: 0 0.8rem;
+    margin: 0 auto;
+}
+
+.navbar .inner .logo{
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.navbar .inner .menu{
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.navbar .inner .menu li{
+    min-width: 100px;
+} 
+
+.navbar .inner .menu li a{
+    padding: 0.8rem 0;
+}
+
+.navbar .inner .logo,
+.navbar .inner .right{
+    display: flex;
+    align-items: center;
+}
+
+.navbar .inner .right a{
+    margin-left: 8px;
+}
+
+.navbar .logo,
+.navbar a{
+    display: block;
+    color: inherit;
+}

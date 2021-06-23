@@ -1,0 +1,17 @@
+.login-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 320px;
+    min-height: 100vh;
+    padding: 1rem;
+    margin: 0 auto;
+}
+
+.login-container .form{
+    width: 100%;
+}
+
+.login-container .message{
+    height: 32px;
+}
