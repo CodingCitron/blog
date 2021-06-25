@@ -1,13 +1,109 @@
 .register-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 600px;
-    min-height: 100vh;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 320px;
+    width: 100%;
     margin: 0 auto;
     padding: 1rem;
+    font-size: 14px;
 }
 
-.register-container .form{
+.register-container .row{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-bottom: 0.8rem;
+    border-radius: 0.2rem;
+}
+
+.register-container .row:last-child{
+    margin-bottom: 0;
+}
+
+.register-container .row .input-box{
+    display: flex;
+    justify-content: space-between;
     width: 100%;
+    min-height: 2rem;
+    padding: 0.2rem 0.5rem;
+    border: 1px solid lightgray;
+    border-radius: 0.2rem;
+    outline: none;
+    transition: 0.3s ease-in-out;
+}
+
+.register-container .submit{
+    appearance: none;
+    outline: none;
+    border: none;
+    width: 100%;
+    padding: 0.5rem;
+    background: #6495ED;
+    color: white;
+    border-radius: 0.2rem;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.register-container .submit:hover{
+    background: #85AFFF;
+}
+
+.register-container .row .title{
+    position: relative;
+}
+
+.register-container .row .title::after{
+    content: ' *';
+    color: #F0412F;
+}
+
+.register-container .row .title,
+.register-container .row .help{
+    margin-bottom: 0.25rem;
+    min-height: 18px;
+}
+
+.register-container .row .help{
+    margin-bottom: 0.8rem;
+}
+
+.register-container .row .message{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.register-container .row .message .warning,
+.register-container .row .message .check{
+    display: none;
+}
+
+.register-container .row .message.warning .warning{
+    display: inline-block;
+    color: #F0412F;
+}
+
+.register-container .row .message.check .check{
+    display: inline-block;
+    color: #AEDB46;
+}
+
+.register-container .row .input-box.focus{
+    border: 1px solid #6495ED;
+}
+
+.register-container .row .input-box.warning{
+    border: 1px solid #F0412F;
+}
+
+.register-container input[type="text"],
+.register-container input[type="password"],
+.register-container input[type="email"]{
+    display: block;
+    width: 100%;
+    border: none;
+    outline: none;
 }

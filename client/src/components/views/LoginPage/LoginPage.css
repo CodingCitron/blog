@@ -1,17 +1,109 @@
 .login-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     max-width: 320px;
-    min-height: 100vh;
-    padding: 1rem;
-    margin: 0 auto;
-}
-
-.login-container .form{
     width: 100%;
+    margin: 0 auto;
+    padding: 1rem;
+    font-size: 14px;
+    color: white;
 }
 
-.login-container .message{
-    height: 32px;
+.login-container .row{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-bottom: 0.5rem;
+    border-radius: 0.2rem;
+}
+
+.login-container .row:last-child{
+    margin-bottom: 0;;
+}
+
+.login-container .row .message{
+    height: 1rem;
+    margin-top: 0.25rem;
+    color: #4F5A6E;
+    font-size: 12px;
+}
+
+.login-container .row:last-child .message{
+    margin: 0 0 0.5rem 0;
+    color: #F0412F;
+}
+
+.login-container .row input:focus{
+    border: 1px solid #6495ED;
+}
+
+.login-container .row.warning input{
+    border: 1px solid #F0412F;
+}
+
+.login-container input[type="text"],
+.login-container input[type="password"],
+.login-container .submit{
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid lightgray;
+    border-radius: 0.2rem;
+    outline: none;
+    transition: 0.3s ease-in-out;
+}
+
+.login-container .submit{
+    appearance: none;
+    background: #6495ED;
+    cursor: pointer;
+    border: none;
+    color: inherit;
+    border-radius: 0.2rem;
+}
+
+.login-container .submit:hover{
+    background: #85AFFF;
+}
+
+.login-container .row.block{
+    display: block;
+    
+}
+
+.login-container .checkbox{
+    display: inline-flex;
+    align-items: center;
+    color: #4F5A6E;
+    cursor: pointer;
+}
+
+.login-container .checkbox .input{
+    display: none;
+}
+
+.login-container .checkbox .checkbox-box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    align-items: baseline;
+    width: 1.1rem;
+    height: 1.1rem;
+    margin-right: 0.5rem;
+    border: 1px solid lightgrey;
+    border-radius: 3px;
+    transition: 0.3s ease-in-out;
+}
+
+.login-container .checkbox .checkbox-box::after{
+    content: '\2714';
+    color: white;
+    margin-top: -0.1rem;
+}
+
+.login-container .checkbox .input:checked + .checkbox-box{
+    background: #6495ED;
+    border-color: #6495ED;
 }

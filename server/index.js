@@ -34,8 +34,10 @@ app.post('/api/user/login', (req, res) => {
       if(!isMatch) return res.json({ loginSuccess: false, message: '비밀번호가 틀렸습니다.' })
       
       user.generateToken((err, user) => {
+        const cookieConfig = { httpOnly: true, maxAge: 7200000 };
+
         if(err) return res.status(400).send(err)
-        res.cookie("x_auth", user.token).status(200)
+        res.cookie('x_auth', user.token, cookieConfig).status(200)
         .json({ loginSuccess: true, userId: user._id })
       })
     })
@@ -46,12 +48,12 @@ app.get('/api/user/logout', auth, (req, res) => {
   User.findOneAndUpdate({ _id: req.user.id }, { token: '' },
   (err, user) => {
     if(err) return res.json({ success: false, err })
+    res.clearCookie('x_auth');
     res.status(200).send({ success: true })
   })
 })
 
-
-app.post('/api/user/auth', auth, (req, res) => {
+app.get('/api/user/auth', auth, (req, res) => {
   res.status(200).json({
     _id: req.user._id,
     isAdmin: req.user.role === 0 ? false : true,
