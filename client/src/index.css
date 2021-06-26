@@ -23,6 +23,7 @@ body{
     color: #4F5A6E;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background-color: white;
 }
 
 code {

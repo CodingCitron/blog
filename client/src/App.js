@@ -1,3 +1,4 @@
+import './App.css'
 import { BrowserRouter, Route, Switch } from "react-router-dom"
 import LandingPage from './components/views/LandingPage/LandingPage'
 import LoginPage from './components/views/LoginPage/LoginPage'
@@ -10,12 +11,12 @@ function App() {
   return (
     <BrowserRouter>
       <Header />
-        <Switch>
-          <Route exact path="/" component={Auth(LandingPage, null)} />
-          <Route exact path="/login" component={Auth(LoginPage, false)} />
-          <Route exact path="/register" component={Auth(RegisterPage, false)} />
-        </Switch>
       <Footer />
+      <Switch>
+        <Route exact path="/" component={Auth(LandingPage, null)} />
+        <Route exact path="/login" component={Auth(LoginPage, false)} />
+        <Route exact path="/register" component={Auth(RegisterPage, false)} />
+      </Switch>
     </BrowserRouter>
   );
 }

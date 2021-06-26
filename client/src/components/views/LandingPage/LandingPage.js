@@ -1,11 +1,14 @@
-import React, { useEffect } from 'react'
-import axios from 'axios'
+import './LandingPage.css'
+import React from 'react'
+import Main from '../Main/Main'
+import Aside from '../Aside/Aside'
 
 function LandingPage(){
 
     return (
-        <div>
-            
+        <div className="ladingPage">
+            <Aside />
+            <Main />
         </div>
     )
 }

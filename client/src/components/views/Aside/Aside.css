@@ -1,0 +1,122 @@
+.aside{
+    max-width: 240px;
+    padding: 1rem;
+    background: white;
+    /* color: white; */
+    border: 1px solid lightgray;
+    border-radius: 0.5rem;
+    /* box-shadow: 0 0 10px 0px rgba(17, 17, 17, 0.1); */
+}
+
+.aside h4{
+    font-size: 13px;
+    margin-bottom: 1rem;
+}
+
+.aside .search-box{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 2rem;
+    padding: 0.2rem 0.5rem;
+    margin-bottom: 2rem;
+    border: 1px solid lightgray;
+    background: white;
+    border-radius: 0.2rem;
+    outline: none;
+    transition: 0.3s ease-in-out;
+}
+
+.aside .search-box.active{
+    border: 1px solid #85AFFF;
+}
+
+.aside .search-box input[type="search"]{
+    display: block;
+    width: 100%;
+    border: none;
+    outline: none;
+}
+
+.aside .search-box button{
+    display: flex;
+    display: -ms-flexbox;
+    align-items: center;
+    justify-content: center;
+    width: 10%;
+    margin-left: 0.5rem;
+    color: #4F5A6E;
+    appearance: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.aside .categories{
+    font-size: 16px;
+}
+
+.aside .list > li{
+    margin-bottom: 1.5rem;
+}
+
+.aside .categories{
+    position: relative;
+    padding: 0.3rem;
+    margin-bottom: 0.4rem;
+}
+
+.aside .categories.active,
+.aside .subheading > li.active{
+    background: #85AFFF;
+    color: white;
+    border-radius: 0.2rem;
+}
+
+.aside .subheading > li{
+    position: relative;
+    padding: 0.3rem;
+    margin-bottom: 0.2rem;
+}
+
+
+.aside .subheading > li > a.new::after{
+    content: 'New';
+    position: absolute;
+    vertical-align: baseline;
+    padding: 0.1rem 0.3rem;
+    margin-left: 0.3rem;
+    background: #EBC063;
+    font-size: 11px;
+    color: white;
+    border-radius: 0.2rem;
+    text-align: center;
+}
+
+.aside .list a{
+    display: inline-block;
+}
+
+.aside .list span{
+    position: absolute;
+    right: 0.3rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 12px;
+    vertical-align: middle;
+}
+
+.aside .list li:last-child{
+    margin-bottom: 0;
+}
+
+.aside .search-box button:hover{
+    color: #6495ED;
+}
+
+[type="search"]::-webkit-search-cancel-button,
+[type="search"]::-webkit-search-decoration{
+    -webkit-appearance: none;
+    appearance: none;
+}
