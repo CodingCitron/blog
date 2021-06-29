@@ -1,15 +1,26 @@
 import './LoginPage.css'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { loginUser } from '../../../_actions/user_action'
 
 function LoginPage(props) {
     const dispatch = useDispatch()
-    const [Message, setMessage] = useState('')
+    const [message, setMessage] = useState('')
+    const [isRemember, setIsRemember] = useState(false)
     const [body, setBody] = useState({
         email: '',
         password: ''
     })
+
+    useEffect(() => {
+       if(localStorage.getItem('email')){
+            setBody({
+                email: localStorage.getItem('email'),
+                password: ''
+            });
+            setIsRemember(true);
+       }
+    }, [])
 
     const handleChange = (e) => {
         const { name, value } = e.target
@@ -19,13 +30,19 @@ function LoginPage(props) {
         })
     }
 
-    function onChange(e) {
-        console.log(`checked = ${e.target.checked}`)
+    function rememberEmail(e){
+        setIsRemember(e.target.checked)
+
+        if(e.target.checked){
+            localStorage.setItem('email', body.email);
+        }else{
+            localStorage.setItem('email', '');
+        }
     }
 
     function onSubmitHandler(e){
         e.preventDefault()
-        
+
         if(!body.email && !body.password){
             return setMessage('아이디 비밀번호를 입력하세요.')
         }
@@ -44,7 +61,8 @@ function LoginPage(props) {
             <form action="#" name="loginForm" onSubmit={onSubmitHandler}>
                 <div className="row">
                     <input type="text" placeholder="Email" name="email" autoFocus autoComplete="on"
-                    onChange={handleChange} />
+                    onChange={handleChange} 
+                    defaultValue={isRemember ? localStorage.getItem('email') : ''}/>
                     <div className="message">
                         
                     </div>
@@ -58,14 +76,16 @@ function LoginPage(props) {
                 </div>
                 <div className="row block">
                     <label htmlFor="remember" className="checkbox">
-                        <input type="checkbox" onChange={onChange} id="remember" className="input" />
+                        <input type="checkbox" onChange={rememberEmail} id="remember" className="input" 
+                        checked={isRemember}
+                        />
                         <div className="checkbox-box"></div>
                         아이디 저장하기
                     </label>
                 </div>
                 <div className="row">
                     <div className="message">
-                        {Message}
+                        {message}
                     </div>
                     <button type="submit" className="submit">Login</button>
                 </div>

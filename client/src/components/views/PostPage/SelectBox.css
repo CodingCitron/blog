@@ -1,0 +1,57 @@
+.select-box{
+    position: relative;
+    display: block;
+    max-width: 160px;
+    cursor: pointer;
+}
+
+.select-box .select{
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem;
+    margin-bottom: 0.2rem;
+    border: 1px solid lightgray;
+    border-radius: 0.2rem;
+    background-color: white;
+}
+
+.select-box .select .arrow-down,
+.select-box .select.active .arrow-up{
+    display: block;
+}
+
+.select-box .select .arrow-up,
+.select-box .select.active .arrow-down{
+    display: none;
+}
+
+.select-box .option{
+    display: none;
+    position: absolute;
+    width: 100%;
+    border: 1px solid lightgray;
+    border-radius: 0.2rem;
+    background-color: white;
+    overflow: hidden;
+    z-index: 5;
+}
+
+.select-box .option.active{
+    display: block;
+    border: 1px solid #6495ED;
+}
+
+.select-box .option li{
+    padding: 0.5rem;
+    transition: 0.3s;
+}
+
+.select-box .option li:hover{
+    color: white;
+    background-color: #85AFFF;
+}
+
+.select-box .select:active,
+.select-box .select.active{
+    border: 1px solid #6495ED;
+}

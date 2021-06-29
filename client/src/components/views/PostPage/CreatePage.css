@@ -19,8 +19,37 @@
     border: 1px solid #6495ED;
 }
 
+.post-create .info{
+    display: flex;
+    display: -ms-flexbox;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1rem;
+    margin-top: 1rem;
+    background-color: white;
+    border: 1px solid lightgray;
+}
+
+.post-create .info button{
+    padding: 0.5rem;
+    border: none;
+    color: white;
+    background-color: #6495ED;
+    border-radius: 0.2rem;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.post-create .info button:hover{
+    background-color: #85AFFF;
+}
+
 .edit{
     min-height: 300px;
+}
+
+.ck.ck-sticky-panel__content{
+    background-color: #6495ED;
 }
 
 .ck.ck-editor__editable:not(.ck-editor__nested-editable) {

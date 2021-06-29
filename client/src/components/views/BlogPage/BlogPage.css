@@ -9,5 +9,6 @@
     padding: 1rem;
     background-color: white;
     box-shadow: 0 0 8px 1px rgba(17, 17, 17, 0.1);
+    border-radius: 0.2rem;
     overflow: hidden;
 }
