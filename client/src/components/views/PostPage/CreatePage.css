@@ -1,0 +1,28 @@
+.post-create{
+    max-width: 1024px;
+    margin: 2rem auto 0;
+    padding: 1rem;
+}
+
+.post-create .title{
+    appearance: none;
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid lightgray;
+    border-radius: 0.2rem;
+    font-size: 20px;
+    outline: none;
+}
+
+.post-create .title:focus{
+    border: 1px solid #6495ED;
+}
+
+.edit{
+    min-height: 300px;
+}
+
+.ck.ck-editor__editable:not(.ck-editor__nested-editable) {
+    min-height: 500px;
+}

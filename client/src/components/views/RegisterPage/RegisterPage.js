@@ -7,18 +7,18 @@ import { registerUser } from '../../../_actions/user_action'
 
 function RegisterPage(props) {
     const dispatch = useDispatch()
-    const [Message, setMessage] = useState('')
-    const [Confirm, setConfirm] = useState('')
+    const [message, setMessage] = useState('')
+    const [check, setCheck] = useState('')
+    const [body, setBody] = useState({
+        name: '',
+        email: '',
+        password: '',
+        confirm: ''
+    })
 
     const onSubmitHandler = (e) => {
         e.preventDefault()
-        if(document.registerForm.password.value !== document.registerForm.confirm.value) return setConfirm('warning')
-
-        const body = {
-            name: document.registerForm.name.value,
-            email: document.registerForm.email.value,
-            password: document.registerForm.password.value
-        }
+        if(body.name !== body.confirm) return setCheck('warning')
 
         dispatch(registerUser(body))
         .then(response => {
@@ -39,31 +39,33 @@ function RegisterPage(props) {
             e.target.parentNode.classList.remove('focus')
     }
 
-    function onChangeHandler(e){
-        if(e.target.nodeName !== 'INPUT') return
+    const onChangeHandler = (e) => {
+        const { name, value } = e.target
+        setBody({ ...body, [name]: value });
+    }
 
-        if(e.target.name === 'confirm' || e.target.name === 'password'){
-            if(document.registerForm.confirm.value === '' && document.registerForm.password.value === '') return setConfirm('')
-            if(document.registerForm.confirm.value === '') return setConfirm('')
-            if(document.registerForm.password.value !== document.registerForm.confirm.value){
-                return setConfirm('warning')
-            }else{
-                return setConfirm('check')
-            }
+    const onCheck = () => {
+        if(body.password === '' || body.confirm === ''){
+            return setCheck('')
         }
 
-        if(e.target.name === 'email'){
-            
+        if(body.password !== body.confirm){
+            return setCheck('warning')
+        }
+
+        if(body.password === body.confirm){
+            return setCheck('check')
         }
     }
 
     return (
         <div className="register-container">
-            <form action="" name="registerForm" onFocus={onFocusHandler} onBlur={onBlurHandler} onSubmit={onSubmitHandler} onChange={onChangeHandler}>
+            <form action="" name="registerForm" onFocus={onFocusHandler} onBlur={onBlurHandler} onSubmit={onSubmitHandler} onChange={onCheck}>
                 <div className="row">
                     <div className="title">Name</div>
                     <label className="input-box" htmlFor="registerName">
-                        <input type="text" id="registerName" name="name" required autoFocus />
+                        <input type="text" id="registerName" name="name" required autoFocus 
+                        onChange={onChangeHandler} />
                         <div className="message focus">
                             <FontAwesomeIcon icon={faCheckCircle} className="check"/>
                             <FontAwesomeIcon icon={faTimesCircle} className="warning"/>
@@ -73,7 +75,8 @@ function RegisterPage(props) {
                 <div className="row">
                     <div className="title">E-mail</div>
                     <label className="input-box" htmlFor="registerEmail">
-                        <input type="email" id="registerEmail" name="email" placeholder="Used when logging in" required />
+                        <input type="email" id="registerEmail" name="email" placeholder="Used when logging in" required 
+                        onChange={onChangeHandler} />
                         <div className="message check">
                             <FontAwesomeIcon icon={faCheckCircle} className="check"/>
                             <FontAwesomeIcon icon={faTimesCircle} className="warning"/>
@@ -83,7 +86,8 @@ function RegisterPage(props) {
                 <div className="row">
                     <div className="title">Password</div>
                     <label className="input-box" htmlFor="registerPassword">
-                        <input type="password" id="registerPassword" name="password" required />
+                        <input type="password" id="registerPassword" name="password" required 
+                        onChange={onChangeHandler} />
                         <div className="message">
                             <FontAwesomeIcon icon={faCheckCircle} className="check"/>
                             <FontAwesomeIcon icon={faTimesCircle} className="warning"/>
@@ -92,9 +96,10 @@ function RegisterPage(props) {
                 </div>
                 <div className="row">
                     <div className="title">Confirm Password</div>
-                    <label className={'input-box ' + Confirm} htmlFor="registerConfirmPassword">
-                        <input type="password" id="registerConfirmPassword" name="confirm" required />
-                        <div className={'message ' + Confirm}>
+                    <label className={'input-box ' + check} htmlFor="registerConfirmPassword">
+                        <input type="password" id="registerConfirmPassword" name="confirm" required 
+                        onChange={onChangeHandler} />
+                        <div className={'message ' + check}>
                             <FontAwesomeIcon icon={faCheckCircle} className="check"/>
                             <FontAwesomeIcon icon={faTimesCircle} className="warning"/>
                         </div>
@@ -102,7 +107,7 @@ function RegisterPage(props) {
                 </div>
                 <div className="row">
                     <div className="help">
-                        {Message}
+                        {message}
                     </div>
                     <button type="submit" className="submit">Register</button>
                 </div>

@@ -1,11 +1,10 @@
 .aside{
-    max-width: 240px;
+    min-width: 240px;
     padding: 1rem;
     background: white;
     /* color: white; */
-    border: 1px solid lightgray;
-    border-radius: 0.5rem;
-    /* box-shadow: 0 0 10px 0px rgba(17, 17, 17, 0.1); */
+    border-radius: 0.2rem;
+    box-shadow: 0 0 8px 1px rgba(17, 17, 17, 0.1);
 }
 
 .aside h4{

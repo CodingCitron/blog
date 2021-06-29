@@ -8,6 +8,9 @@
     margin: 0 auto;
     padding: 1rem;
     font-size: 14px;
+    background-color: white;
+    border-radius: 0.2rem;
+    box-shadow: 0 0 8px 0 rgba(17, 17, 17, 0.1);
 }
 
 .register-container .row{
@@ -30,6 +33,7 @@
     padding: 0.2rem 0.5rem;
     border: 1px solid lightgray;
     border-radius: 0.2rem;
+    background-color: white;
     outline: none;
     transition: 0.3s ease-in-out;
 }
@@ -67,6 +71,7 @@
 }
 
 .register-container .row .help{
+    color: #F0412F;
     margin-bottom: 0.8rem;
 }
 

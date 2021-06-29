@@ -26,7 +26,6 @@ export function logoutUser(){
     }
 }
 
-
 export function registerUser(dataToSubmit){
     const request = axios.post('/api/user/register', dataToSubmit)
     .then(response => response.data)

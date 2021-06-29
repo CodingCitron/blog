@@ -6,6 +6,18 @@ import { loginUser } from '../../../_actions/user_action'
 function LoginPage(props) {
     const dispatch = useDispatch()
     const [Message, setMessage] = useState('')
+    const [body, setBody] = useState({
+        email: '',
+        password: ''
+    })
+
+    const handleChange = (e) => {
+        const { name, value } = e.target
+
+        setBody({
+            ...body, [name]: value
+        })
+    }
 
     function onChange(e) {
         console.log(`checked = ${e.target.checked}`)
@@ -13,10 +25,6 @@ function LoginPage(props) {
 
     function onSubmitHandler(e){
         e.preventDefault()
-        const body = {
-            email : document.loginForm.email.value,
-            password : document.loginForm.password.value
-        }
         
         if(!body.email && !body.password){
             return setMessage('아이디 비밀번호를 입력하세요.')
@@ -35,13 +43,15 @@ function LoginPage(props) {
         <div className="login-container">
             <form action="#" name="loginForm" onSubmit={onSubmitHandler}>
                 <div className="row">
-                    <input type="text" placeholder="Email" name="email" autoFocus autoComplete="on"/>
+                    <input type="text" placeholder="Email" name="email" autoFocus autoComplete="on"
+                    onChange={handleChange} />
                     <div className="message">
                         
                     </div>
                 </div>
                 <div className="row">
-                    <input type="password" placeholder="Password" name="password" />
+                    <input type="password" placeholder="Password" name="password" 
+                    onChange={handleChange} />
                     <div className="message">
 
                     </div>

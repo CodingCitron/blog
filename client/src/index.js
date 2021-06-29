@@ -6,8 +6,6 @@ import { applyMiddleware, createStore } from 'redux'
 import { Provider } from 'react-redux'
 import promisMiddlware from 'redux-promise'
 import ReduxThunk from 'redux-thunk'
-import './index.css'
-import './normalize.css'
 import Reducer from './_reducers'
 
 const createStoreWithMiddleware = applyMiddleware(promisMiddlware, ReduxThunk)(createStore)

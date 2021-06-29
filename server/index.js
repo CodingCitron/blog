@@ -22,7 +22,6 @@ app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })
 
-
 app.post('/api/user/register', (req, res) => {
   const user = new User(req.body)
   user.save((err, userInfo) => {

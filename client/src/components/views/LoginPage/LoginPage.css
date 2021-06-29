@@ -9,6 +9,9 @@
     padding: 1rem;
     font-size: 14px;
     color: white;
+    background-color: white;
+    border-radius: 0.2rem;
+    box-shadow: 0 0 8px 0 rgba(17, 17, 17, 0.1);
 }
 
 .login-container .row{
@@ -94,6 +97,7 @@
     margin-right: 0.5rem;
     border: 1px solid lightgrey;
     border-radius: 3px;
+    background-color: white;
     transition: 0.3s ease-in-out;
 }
 

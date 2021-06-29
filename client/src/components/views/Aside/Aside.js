@@ -30,62 +30,50 @@ function Aside(){
                     </h4>
                     <ul className="list">
                         <li>
-                            <div className="categories active">
+                            <div className="categories">
                                 <a href="#">HTML</a>
-                                <span>(100)</span>
                             </div>
                             <ul className="subheading">
-                                <li className="active">
-                                    <a href="#" className="new">subheading</a>
-                                    <span>(70)</span>
-                                </li>
                                 <li>
-                                    <a href="#" className="new">subheading</a>
-                                    <span>(70)</span>
+                                    <a href="#">subheading</a>
                                 </li>
                                 <li>
                                     <a href="#">subheading</a>
-                                    <span>(70)</span>
+                                </li>
+                                <li>
+                                    <a href="#">subheading</a>
                                 </li>
                             </ul>
                         </li>
                         <li>
                             <div className="categories">
                                 <a href="#">HTML</a>
-                                <span>(100)</span>
                             </div>
                             <ul className="subheading">
                                 <li>
                                     <a href="#">subheading</a>
-                                    <span>(70)</span>
                                 </li>
                                 <li>
                                     <a href="#">subheading</a>
-                                    <span>(70)</span>
                                 </li>
                                 <li>
                                     <a href="#">subheading</a>
-                                    <span>(70)</span>
                                 </li>
                             </ul>
                         </li>
                         <li>
                             <div className="categories">
                                 <a href="#">HTML</a>
-                                <span>(100)</span>
                             </div>
                             <ul className="subheading">
                                 <li>
                                     <a href="#">subheading</a>
-                                    <span>(70)</span>
                                 </li>
                                 <li>
                                     <a href="#">subheading</a>
-                                    <span>(70)</span>
                                 </li>
                                 <li>
                                     <a href="#">subheading</a>
-                                    <span>(70)</span>
                                 </li>
                             </ul>
                         </li>
