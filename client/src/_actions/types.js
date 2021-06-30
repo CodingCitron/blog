@@ -1,4 +1,6 @@
 export const LOGIN_USER = 'login_user'
 export const REGISTER_USER = 'register_user'
+export const REGISTER_USER_EMAIL_CHECK = 'register_user_email_check'
 export const AUTH_USER = 'auth_user'
 export const LOGOUT_USER = 'logout_user'
+export const INSERT_LIST = 'insert_list'

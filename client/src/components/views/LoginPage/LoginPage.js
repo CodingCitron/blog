@@ -30,9 +30,8 @@ function LoginPage(props) {
         })
     }
 
-    function rememberEmail(e){
+    const checked = (e) => {
         setIsRemember(e.target.checked)
-
         if(e.target.checked){
             localStorage.setItem('email', body.email);
         }else{
@@ -40,7 +39,7 @@ function LoginPage(props) {
         }
     }
 
-    function onSubmitHandler(e){
+    const onSubmitHandler = (e) => {
         e.preventDefault()
 
         if(!body.email && !body.password){
@@ -49,7 +48,12 @@ function LoginPage(props) {
 
         dispatch(loginUser(body))
         .then(response => {
-            if(response.payload.loginSuccess){
+            if(response.payload.loginSuccess){ 
+                if(isRemember){
+                    localStorage.setItem('email', body.email);
+                }else{
+                    localStorage.setItem('email', '');
+                }
                 return props.history.push('/')
             }
             return setMessage('아이디 비밀번호가 일치하지 않습니다.')
@@ -61,7 +65,7 @@ function LoginPage(props) {
             <form action="#" name="loginForm" onSubmit={onSubmitHandler}>
                 <div className="row">
                     <input type="text" placeholder="Email" name="email" autoFocus autoComplete="on"
-                    onChange={handleChange} 
+                    onChange={handleChange}
                     defaultValue={isRemember ? localStorage.getItem('email') : ''}/>
                     <div className="message">
                         
@@ -76,7 +80,7 @@ function LoginPage(props) {
                 </div>
                 <div className="row block">
                     <label htmlFor="remember" className="checkbox">
-                        <input type="checkbox" onChange={rememberEmail} id="remember" className="input" 
+                        <input type="checkbox" onChange={checked} id="remember" className="input" 
                         checked={isRemember}
                         />
                         <div className="checkbox-box"></div>

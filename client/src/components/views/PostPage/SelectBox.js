@@ -5,7 +5,7 @@ function SelectBox({ updateSelect, value }){
     const [selected, setSelected] = useState(value)
     const [active, setActive] = useState(false)
     
-    const optionOpen = (e) => {
+    const optionOpen = () => {
         setActive(!active)
     }
 

@@ -1,0 +1,34 @@
+.quill{
+    border-radius: 0.2rem;
+}
+
+.quill:focus .ql-container.ql-snow{
+    border: 1px solid #85AFFF;
+}
+
+.ql-toolbar.ql-snow{
+    background-color: white;
+    border-radius: 0.2rem 0.2rem 0 0;
+    border-style: solid;
+    border: 1px solid lightgray;
+    border-bottom: none;
+}
+
+.ql-container.ql-snow{
+    background-color: white;
+    border-radius: 0 0 0.2rem 0.2rem;
+    border: none;
+}
+
+.ql-container.ql-snow .ql-editor{
+    border-radius: 0 0 0.2rem 0.2rem;
+    border: 1px solid lightgray;
+}
+
+.ql-container.ql-snow .ql-editor{
+    min-height: 500px;
+}
+
+.ql-container.ql-snow .ql-editor:focus{
+    border: 1px solid #6495ED;
+}

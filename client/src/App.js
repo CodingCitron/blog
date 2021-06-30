@@ -18,7 +18,7 @@ function App() {
         <Route exact path="/" component={Auth(LandingPage, null)} />
         <Route exact path="/login" component={Auth(LoginPage, false)} />
         <Route exact path="/register" component={Auth(RegisterPage, false)} />
-        <Route exact path="/post/create" component={Auth(CreatePage, true)} />
+        <Route exact path="/post/insert" component={Auth(CreatePage, true)} />
       </Switch>
     </BrowserRouter>
   );

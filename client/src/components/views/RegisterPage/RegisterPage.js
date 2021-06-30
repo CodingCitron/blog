@@ -3,7 +3,7 @@ import { faCheckCircle, faTimesCircle } from "@fortawesome/free-solid-svg-icons"
 import './RegisterPage.css'
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { registerUser } from '../../../_actions/user_action'
+import { registerUser, emailCheck } from '../../../_actions/user_action'
 
 function RegisterPage(props) {
     const dispatch = useDispatch()
@@ -14,6 +14,15 @@ function RegisterPage(props) {
         email: '',
         password: '',
         confirm: ''
+    })
+
+    const [checkEmail, setCheckEmail] = useState('')
+
+    const [valueCheck, setValueCheck] = useState({
+        name: false,
+        email: false,
+        password: false,
+        confirm: false
     })
 
     const onSubmitHandler = (e) => {
@@ -29,12 +38,12 @@ function RegisterPage(props) {
         })
     }
 
-    function onFocusHandler(e){
+    const onFocusHandler = (e) => {
         if(e.target.nodeName !== 'INPUT') return
             e.target.parentNode.classList.add('focus')
     }
     
-    function onBlurHandler(e){
+    const onBlurHandler = (e) => {
         if(e.target.nodeName !== 'INPUT') return
             e.target.parentNode.classList.remove('focus')
     }
@@ -45,7 +54,7 @@ function RegisterPage(props) {
     }
 
     const onCheck = () => {
-        if(body.password === '' || body.confirm === ''){
+        if(!body.password || !body.confirm ){
             return setCheck('')
         }
 
@@ -58,15 +67,32 @@ function RegisterPage(props) {
         }
     }
 
+    const onEmailCheck = (e) => {
+        e.preventDefault()
+        if(body.email.length < 6) return 
+        if(body.email.indexOf('@') === -1) return
+        const email = {
+            email: body.email
+        }
+        dispatch(emailCheck(email))
+        .then(response => {
+            if(response.payload.emailCheck){
+                setCheckEmail('check')
+            }else{
+                setCheckEmail('warning')
+            }
+        })
+    }
+
     return (
         <div className="register-container">
-            <form action="" name="registerForm" onFocus={onFocusHandler} onBlur={onBlurHandler} onSubmit={onSubmitHandler} onChange={onCheck}>
+            <form action="" name="registerForm" onFocus={onFocusHandler} onBlur={onBlurHandler} onSubmit={onSubmitHandler} onKeyUp={onCheck}>
                 <div className="row">
                     <div className="title">Name</div>
                     <label className="input-box" htmlFor="registerName">
                         <input type="text" id="registerName" name="name" required autoFocus 
                         onChange={onChangeHandler} />
-                        <div className="message focus">
+                        <div className="message">
                             <FontAwesomeIcon icon={faCheckCircle} className="check"/>
                             <FontAwesomeIcon icon={faTimesCircle} className="warning"/>
                         </div>
@@ -74,10 +100,11 @@ function RegisterPage(props) {
                 </div>
                 <div className="row">
                     <div className="title">E-mail</div>
-                    <label className="input-box" htmlFor="registerEmail">
+                    <label className={'input-box ' + checkEmail} htmlFor="registerEmail">
                         <input type="email" id="registerEmail" name="email" placeholder="Used when logging in" required 
-                        onChange={onChangeHandler} />
-                        <div className="message check">
+                        onChange={onChangeHandler}
+                        onKeyUp={onEmailCheck} />
+                        <div className={'message ' + checkEmail}>
                             <FontAwesomeIcon icon={faCheckCircle} className="check"/>
                             <FontAwesomeIcon icon={faTimesCircle} className="warning"/>
                         </div>

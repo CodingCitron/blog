@@ -1,35 +1,74 @@
 import './CreatePage.css'
-import React, { useState } from 'react';
-import { CKEditor } from '@ckeditor/ckeditor5-react';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import React, { useState, useEffect, useRef } from 'react';
+import { useDispatch, useSelector } from 'react-redux'
 import SelectBox from './SelectBox';
+import { insertList } from '../../../_actions/list_action'
+import Quill from './Quill';
 
-function CreatePage(){
+const PrivateOption = [
+    {value: 0, lable: "Private"},
+    {value: 1, lable: "Public"}
+]
 
-    const [content, setContent] = useState({
-        category: 'CATEGORY',
+function CreatePage(props){
+    const dispatch = useDispatch()
+        
+    const user = useSelector(state => state.user)
+    const [body, setBody] = useState({
+        category: 'ALL',
         title: '',
-        content: ''
+        contents: ''
     })
+    const [privatePost, setPrivatePost] = useState(0)
+
+    //Quill
+    const onEditorChange = (value) => {
+        setBody({
+            ...body, 
+            contents: value
+        })
+    }
+    //Quill
 
     const handleChange = (e) => {
        const { name, value } = e.target
 
-       setContent({
-           ...content, 
-           [name]: value
+       setBody({
+           ...body, 
+           [name]: value,
        })
     }
 
     const submitHandler = (e) => {
         e.preventDefault()
+        
+        console.log(user.userData)
 
-        console.log(content)
+        const variable = {
+            writer: user.userData._id,
+            title: body.title,
+            category: body.category,
+            content: body.contents,
+            privacy: 0,
+            filePath: "ABCD",
+            thumbnail: "EFGH",
+        }
+
+        console.log(variable)
+
+        dispatch(insertList(variable))
+        .then(response => {
+            if(response.payload.listSuccess){
+                return props.history.push('/')
+            }else{
+                alert('글 작성에 실패 했습니다.')
+            }
+        })
     }
     
     const updateSelect = (category) => {
-        setContent({
-            ...content, 
+        setBody({
+            ...body, 
             category
         })
     }
@@ -38,29 +77,17 @@ function CreatePage(){
         value: 'CATEGORY'
     }
 
+    //파일 업로드
+    
     return (
         <div className="post-create">
             <form onSubmit={submitHandler}>
                 <SelectBox updateSelect={updateSelect}/>
                 <input type="text" placeholder="Title" className="title" name="title" autoFocus
                 onChange={handleChange} />
-                <CKEditor 
-                    editor={ ClassicEditor }
-                    data=""
-                    onReady={ editor => {
-                        // You can store the "editor" and use when it is needed.
-                        console.log( 'Editor is ready to use!', editor );
-                    } }
-                    onChange={ ( event, editor ) => {
-                        const data = editor.getData();
-                        setContent({
-                            ...content, 
-                            content: data
-                        })
-                    } }
+                <Quill value={body.contents} onChange={onEditorChange}
                 />
                 <div className="info">
-                    <div></div>
                     <button>등록하기</button>
                 </div>
             </form>

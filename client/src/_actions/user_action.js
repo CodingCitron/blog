@@ -2,6 +2,7 @@ import axios from 'axios'
 import {
     LOGIN_USER,
     REGISTER_USER,
+    REGISTER_USER_EMAIL_CHECK,
     AUTH_USER,
     LOGOUT_USER
 } from './types'
@@ -32,6 +33,16 @@ export function registerUser(dataToSubmit){
 
     return {
         type: REGISTER_USER,
+        payload: request
+    }
+}
+
+export function emailCheck(dataToSubmit){
+    const request = axios.post('/api/user/emailCheck', dataToSubmit)
+    .then(response => response.data)
+
+    return {
+        type: REGISTER_USER_EMAIL_CHECK,
         payload: request
     }
 }
