@@ -2,13 +2,73 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     column-gap: 1rem;
+    row-gap: 1rem;
 }
 
 .blog-page .post{
-    height: 300px;
-    padding: 1rem;
+    position: relative;
+    height: 320px;
     background-color: white;
     box-shadow: 0 0 8px 1px rgba(17, 17, 17, 0.1);
     border-radius: 0.2rem;
     overflow: hidden;
+    transition: 0.3s ease-in-out;
+}
+
+.blog-page .post:hover,
+.blog-page-paging .btn:hover{
+    box-shadow: 0 0 16px 1px rgba(17, 17, 17, 0.4);
+}
+
+.blog-page .post .title{
+    padding: 1rem 1rem 0.5rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.blog-page .post .content{
+    padding: 0 1rem;
+    max-height: 50%;
+    line-height: 1.5;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    white-space: normal;
+    height: 4.5em;
+    text-align: left; 
+    word-wrap: break-word; 
+    display: -webkit-box; 
+    -webkit-line-clamp: 3; 
+    -webkit-box-orient: vertical;
+}
+
+/* .blog-page .post .title,
+.blog-page .post .content{
+
+} */
+
+.blog-page .thumbnail-image{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 60%;
+    background: lightgray;
+    /* filter: brightness(0.1); */
+}
+
+.blog-page-paging{
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.blog-page-paging .btn{
+    padding: 0.5rem;
+    background: white;
+    border-radius: 0.2rem;
+    box-shadow: 0 0 8px 1px rgba(17, 17, 17, 0.1);
+    transition: 0.3s ease-in-out;
 }

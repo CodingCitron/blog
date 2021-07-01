@@ -13,7 +13,9 @@ const listSchema = mongoose.Schema({
     category: {
         type: String
     },
-    contents: String,
+    content: {
+        type: String
+    },
     privacy: {
         type: Number
     },

@@ -10,7 +10,7 @@ function Submenu(props){
     const logout = () => {
         dispatch(logoutUser())
         .then(response => {
-            if(response) return window.location.replace("/")
+            if(response) return window.location.replace('/')
             return alert('Log Out Failed')
         })
     }

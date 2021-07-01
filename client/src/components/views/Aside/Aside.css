@@ -1,8 +1,11 @@
 .aside{
     min-width: 240px;
-    padding: 1rem;
-    background: white;
     /* color: white; */
+}
+
+.aside .category-list{
+    padding: 1rem;
+    background-color: white;
     border-radius: 0.2rem;
     box-shadow: 0 0 8px 1px rgba(17, 17, 17, 0.1);
 }

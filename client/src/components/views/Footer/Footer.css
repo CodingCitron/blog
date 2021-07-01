@@ -1,14 +1,43 @@
 .footer{
     width: 100%;
     padding: 0.8rem;
-    margin: 0 auto;
+    margin-top: 128px;
     text-align: center;
     color: white;
+    font-size: 12px;
     background-color: #6495ED;
+}
+
+.footer .inner{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.footer .logo{
+    font-family: 'Righteous', cursive;
+    font-size: 24px;
+}
+
+.footer .link{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    margin-bottom: 0.5rem;
+}
+
+.footer .say p{
+    margin-bottom: 0.5rem;
+}
+
+.footer .link li{
+    padding: 0.5rem;
 }
 
 .footer.fixed{
     position: fixed;
     bottom: 0;
-    z-index: 10;
 }

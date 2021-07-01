@@ -1,18 +1,16 @@
 import './CreatePage.css'
 import React, { useState, useEffect, useRef } from 'react';
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import SelectBox from './SelectBox';
-import { insertList } from '../../../_actions/list_action'
-import Quill from './Quill';
+import QuillEditor from '../editor/QuillEditor';
+import axios from 'axios';
 
 const PrivateOption = [
     {value: 0, lable: "Private"},
     {value: 1, lable: "Public"}
 ]
 
-function CreatePage(props){
-    const dispatch = useDispatch()
-        
+function CreatePage(props){        
     const user = useSelector(state => state.user)
     const [body, setBody] = useState({
         category: 'ALL',
@@ -22,11 +20,17 @@ function CreatePage(props){
     const [privatePost, setPrivatePost] = useState(0)
 
     //Quill
+    const [files, setFiles] = useState([])
+
     const onEditorChange = (value) => {
         setBody({
             ...body, 
             contents: value
         })
+    }
+
+    const onFilesChange = (files) => {
+        setFiles(files)
     }
     //Quill
 
@@ -41,8 +45,19 @@ function CreatePage(props){
 
     const submitHandler = (e) => {
         e.preventDefault()
-        
-        console.log(user.userData)
+        if(user.userData && !user.userData.isAuth){
+            console.log(user.userData.isAuth)
+            return alert('로그인 상태가 아닙니다.')
+        }
+
+        let m,
+        urls = [], 
+        str = body.contents,
+        rex = /<img[^>]*src=[\"']?([^>\"']+)[\"']?[^>]*>/g
+
+        while(m = rex.exec(str)){
+            urls.push(m[1]);
+        }
 
         const variable = {
             writer: user.userData._id,
@@ -50,22 +65,22 @@ function CreatePage(props){
             category: body.category,
             content: body.contents,
             privacy: 0,
-            filePath: "ABCD",
-            thumbnail: "EFGH",
+            thumbnail : urls[0]
         }
 
-        console.log(variable)
-
-        dispatch(insertList(variable))
+        if(!variable.title) return alert('제목을 작성하세요.')
+        if(!variable.content) return alert('내용이 없습니다.')
+        
+        axios.post('/api/list/insertList', variable)
         .then(response => {
-            if(response.payload.listSuccess){
-                return props.history.push('/')
-            }else{
-                alert('글 작성에 실패 했습니다.')
+            console.log(response)
+            if(response.data.success){
+                props.history.push('/')
             }
         })
     }
-    
+
+    //셀렉트 박스
     const updateSelect = (category) => {
         setBody({
             ...body, 
@@ -76,16 +91,18 @@ function CreatePage(props){
     SelectBox.defaultProps = {
         value: 'CATEGORY'
     }
+    //셀렉트 박스
 
-    //파일 업로드
-    
     return (
         <div className="post-create">
             <form onSubmit={submitHandler}>
                 <SelectBox updateSelect={updateSelect}/>
                 <input type="text" placeholder="Title" className="title" name="title" autoFocus
                 onChange={handleChange} />
-                <Quill value={body.contents} onChange={onEditorChange}
+                <QuillEditor
+                    placeholder={`첫 번째 이미지만 섬네일이 됩니다. 알맞는 크기(320 * 192) `}
+                    onEditorChange={onEditorChange}
+                    onFilesChange={onFilesChange}
                 />
                 <div className="info">
                     <button>등록하기</button>

@@ -3,7 +3,7 @@ import React from 'react'
 import Main from '../Main/Main'
 import Aside from '../Aside/Aside'
 
-function LandingPage(){
+function LandingPage(props){
 
     return (
         <div className="ladingPage">

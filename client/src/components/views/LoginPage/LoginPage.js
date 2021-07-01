@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { loginUser } from '../../../_actions/user_action'
 
+
 function LoginPage(props) {
     const dispatch = useDispatch()
     const [message, setMessage] = useState('')
@@ -54,7 +55,7 @@ function LoginPage(props) {
                 }else{
                     localStorage.setItem('email', '');
                 }
-                return props.history.push('/')
+                return window.location.replace('/')
             }
             return setMessage('아이디 비밀번호가 일치하지 않습니다.')
         })
