@@ -2,7 +2,7 @@ import './CreatePage.css'
 import React, { useState, useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux'
 import SelectBox from './SelectBox';
-import QuillEditor from '../editor/QuillEditor';
+import QuillEditor from '../../editor/QuillEditor'
 import axios from 'axios';
 
 const PrivateOption = [
@@ -17,7 +17,7 @@ function CreatePage(props){
         title: '',
         contents: ''
     })
-    const [privatePost, setPrivatePost] = useState(0)
+    const [privatePost, setPrivatePost] = useState(0) // 공개 비공개 기능
 
     //Quill
     const [files, setFiles] = useState([])
@@ -46,7 +46,6 @@ function CreatePage(props){
     const submitHandler = (e) => {
         e.preventDefault()
         if(user.userData && !user.userData.isAuth){
-            console.log(user.userData.isAuth)
             return alert('로그인 상태가 아닙니다.')
         }
 
@@ -61,6 +60,7 @@ function CreatePage(props){
 
         const variable = {
             writer: user.userData._id,
+            name: user.userData.name,
             title: body.title,
             category: body.category,
             content: body.contents,
@@ -73,7 +73,6 @@ function CreatePage(props){
         
         axios.post('/api/list/insertList', variable)
         .then(response => {
-            console.log(response)
             if(response.data.success){
                 props.history.push('/')
             }
@@ -100,7 +99,7 @@ function CreatePage(props){
                 <input type="text" placeholder="Title" className="title" name="title" autoFocus
                 onChange={handleChange} />
                 <QuillEditor
-                    placeholder={`첫 번째 이미지만 섬네일이 됩니다. 알맞는 크기(320 * 192) `}
+                    placeholder={`첫 번째 이미지만 섬네일이 됩니다.`}
                     onEditorChange={onEditorChange}
                     onFilesChange={onFilesChange}
                 />

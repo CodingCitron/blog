@@ -1,6 +1,6 @@
 import './LandingPage.css'
 import React from 'react'
-import Main from '../Main/Main'
+import BlogPage from '../BlogPage/BlogPage'
 import Aside from '../Aside/Aside'
 
 function LandingPage(props){
@@ -8,7 +8,7 @@ function LandingPage(props){
     return (
         <div className="ladingPage">
             <Aside />
-            <Main />
+            <BlogPage />
         </div>
     )
 }

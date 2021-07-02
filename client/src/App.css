@@ -21,15 +21,36 @@ body{
     min-height: 100vh;
     font-size: 14px;
     font-family: 'Mulish', 'Malgun Gothic', sans-serif;
-    color: #4F5A6E;
+    color: #6F7787;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background-color: #eee;
 }
 
+main{
+    width: 100%;
+}
+
+main > h2{
+    font-size: 24px;
+    margin: 2rem 0;
+    color: #444;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+h1, 
+.title{
+    color: #444;
+}
+
+.layout{
+    max-width: 1280px;
+    padding: 1rem;
+    margin: 0 auto;
 }
 
  /*

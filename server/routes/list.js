@@ -6,7 +6,7 @@ const { List } = require('../models/List')
 // STORAGE MULTER CONFIG
 let storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, "uploads/");
+        cb(null, 'uploads/');
     },
     filename: (req, file, cb) => {
         cb(null, `${Date.now()}_${file.originalname}`);
@@ -20,9 +20,9 @@ let storage = multer.diskStorage({
     }
 });
 
-const upload = multer({ storage: storage }).single("file");
+const upload = multer({ storage: storage }).single('file');
 
-router.post("/uploadfiles", (req, res) => {
+router.post('/uploadfiles', (req, res) => {
     upload(req, res, err => {
         if (err) {
             return res.json({ success: false, err });
@@ -51,30 +51,28 @@ router.get('/getListLength', (req, res) => {
 })
 
 //.populate("writer")
-router.get("/getList/:paging", (req, res) => {
-    const paging = parseInt(req.params.paging)
+router.get('/getList/:paging/show/:show', (req, res) => {
+    const paging = parseInt(req.params.paging),
+    show = parseInt(req.params.show)
     List.find()
         .skip(paging)
-        .limit(9)
+        .limit(show)
+        .populate('writer', 'name role')
         .sort({ createdAt: 'desc' })
         .exec((err, list) => {
             if (err) return res.status(400).send(err).console.log(err)
-
-
-
+            // list.createdAt = getDate(list.createdAt)
             res.status(200).json({ success: true, list })
         });
 });
 
-router.post("/getPost", (req, res) => {
-    List.findOne({ "_id": req.body.postId })
-        .populate('writer')
+router.post('/getPost', (req, res) => {
+    List.findOne({ '_id': req.body.postId })
+        .populate('writer', 'name role')
         .exec((err, post) => {
             if (err) return res.status(400).send(err).console.log(err)
             res.status(200).json({ success: true, post })
         })
 });
-
-
 
 module.exports = router;

@@ -1,13 +1,26 @@
 .aside{
     min-width: 240px;
     /* color: white; */
+    margin-top: 2rem;
+    margin-right: 1rem;
 }
 
 .aside .category-list{
+    position: fixed;
+    min-width: 240px;
     padding: 1rem;
     background-color: white;
     border-radius: 0.2rem;
-    box-shadow: 0 0 8px 1px rgba(17, 17, 17, 0.1);
+    box-shadow: 0 0 8px 0px rgba(17, 17, 17, 0.1);
+    transition: 0.3s ease-in-out;
+}
+
+.aside .category-list:hover{
+    box-shadow: 0 0 48px 0px rgba(17, 17, 17, 0.3);
+}
+
+.aside .category-list .all{
+    margin-bottom: 0.5rem;
 }
 
 .aside h4{
@@ -25,6 +38,7 @@
     border: 1px solid lightgray;
     background: white;
     border-radius: 0.2rem;
+    box-shadow: 0 0 8px 0px rgb(17, 17, 17, 0.1) inset;
     outline: none;
     transition: 0.3s ease-in-out;
 }
@@ -65,7 +79,7 @@
 
 .aside .categories{
     position: relative;
-    padding: 0.3rem;
+    padding: 0.3rem 0;
     margin-bottom: 0.4rem;
 }
 
@@ -78,7 +92,7 @@
 
 .aside .subheading > li{
     position: relative;
-    padding: 0.3rem;
+    padding: 0.3rem 0;
     margin-bottom: 0.2rem;
 }
 

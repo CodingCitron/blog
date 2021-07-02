@@ -1,0 +1,62 @@
+.post-page{
+    display: flex;
+}
+
+.post-page h1{
+    font-size: 26px;
+    margin: 0.5rem 0;
+}
+
+.post-page .title{
+    position: relative;
+    margin-bottom: 2.5rem;
+    border-style: solid;
+    border-image: linear-gradient(to left, 
+    transparent 5%, #6F7787 95%, transparent 100%);
+    border-image-slice: 1;
+    border-image-width: 0 0 1px 0;
+}
+
+.post-page .title .info{
+    position: absolute;
+    top: 0.5rem;
+    right: 0;
+    margin-top: auto;
+    font-size: 12px;
+    text-align: right;
+    color: #6F7787;
+}
+
+.post-page .title .info .date{
+    margin: 0.5rem 0;
+}
+
+.post-page main{
+    position: relative;
+    min-height: 600px;
+    padding: 1rem 1rem 3rem;
+    margin-top: 2rem;
+    border-radius: 0.2rem;
+    box-shadow: 0 0 8px 0 rgba(17, 17, 17, 0.1);
+    background-color: white;
+}
+
+.post-page main .tag{
+    position: absolute;
+    bottom: 1rem;
+    margin-top: 1rem;
+    font-size: 11px;
+    color: #444;
+}
+
+.post-page main .tag span:first-child{
+    font-size: 12px;
+    margin-right: 0.5rem;
+}
+
+.post-page main .tag span:nth-child(n + 2){
+    /* display: block; */
+    padding: 0.3rem;
+    background: lightgray;
+    border-radius: 0.2rem;
+}

@@ -1,6 +1,6 @@
 import React from 'react'
 
-function PostPage(){
+function UpdatePage() {
     return (
         <div>
             
@@ -8,4 +8,4 @@ function PostPage(){
     )
 }
 
-export default PostPage
+export default UpdatePage

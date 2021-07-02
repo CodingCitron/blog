@@ -32,5 +32,13 @@ const listSchema = mongoose.Schema({
     image: String,
 }, { timestamps: true })
 
+// AutoIncrement 사용 X
+// const AutoIncrement = require ( 'mongoose-sequence' ) ( mongoose ) ;
+// number: {
+//     type: Number,
+//     default: 0
+// },
+// listSchema.plugin(AutoIncrement, {inc_field: 'number'});
+
 const List = mongoose.model('List', listSchema)
 module.exports = { List }
