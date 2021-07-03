@@ -1,10 +1,10 @@
-.post-create{
+.update-create{
     max-width: 1024px;
     margin: 2rem auto 0;
     padding: 1rem;
 }
 
-.post-create .title{
+.update-create .title{
     appearance: none;
     width: 100%;
     padding: 1rem;
@@ -15,11 +15,11 @@
     outline: none;
 }
 
-.post-create .title:focus{
+.update-create .title:focus{
     border: 1px solid #6495ED;
 }
 
-.post-create .info{
+.update-create .info{
     display: flex;
     display: -ms-flexbox;
     justify-content: flex-end;
@@ -30,7 +30,7 @@
     border: 1px solid lightgray;
 }
 
-.post-create .info button:hover{
+.update-create .info button:hover{
     background-color: #85AFFF;
 }
 

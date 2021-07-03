@@ -1,0 +1,50 @@
+.background-black{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+}
+
+.background-black .modal{
+    position: absolute;
+    max-width: 320px;
+    width: 100%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 1rem;
+}
+
+.background-black .modal .inner{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 100px;
+    color: #F0412F;
+    font-weight: bold;
+    background: white;
+    border-radius: 0.2rem;
+}
+
+.background-black .modal .inner .icon{
+    font-size: 18px;
+    color: white;
+    margin-right: 0.5rem;
+}
+
+.background-black .modal .inner .prompt{
+    margin-top: 0.5rem;
+}
+
+.background-black .modal .inner .prompt .button{
+    text-decoration: underline;
+    padding: 0;
+    margin: 0.5rem 0.5rem 0;
+    color: white;
+    background-color: transparent;
+}

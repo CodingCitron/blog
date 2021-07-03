@@ -12,8 +12,6 @@ ul, li{
 }
 
 a{
-    color: inherit;
-    text-decoration: none;
     cursor: pointer;
 }
 
@@ -37,11 +35,6 @@ main > h2{
     color: #444;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
 h1, 
 .title{
     color: #444;
@@ -51,6 +44,34 @@ h1,
     max-width: 1280px;
     padding: 1rem;
     margin: 0 auto;
+}
+
+.submit{
+    appearance: none;
+    outline: none;
+    border: none;
+    width: 100%;
+    padding: 0.5rem;
+    background: #6495ED;
+    color: white;
+    border-radius: 0.2rem;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.button:hover,
+.submit:hover{
+    background: #85AFFF;
+}
+
+.button{
+    padding: 0.5rem;
+    border: none;
+    color: white;
+    background-color: #6495ED;
+    border-radius: 0.2rem;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
 }
 
  /*
@@ -69,5 +90,12 @@ h1,
     #EED9AB
 
     #F0412F
+    F9897C
+    F7887C !! alert 색
+    rgba(240, 65, 47, 1)
 */
 
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+      monospace;
+  }

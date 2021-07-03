@@ -9,6 +9,11 @@
     z-index: 10;
 }
 
+.header a{
+    color: inherit;
+    text-decoration: none;
+}
+
 .header-space{
     height: 50px;
 }
@@ -93,14 +98,14 @@
     padding-bottom: 1rem;
 }
 
-.header .menu-box .button{
+.header .menu-box .hambuger-button{
     position: relative;
     width: 24px;
     height: 18px;
     cursor: pointer;
 }
 
-.header .menu-box .button > div{
+.header .menu-box .hambuger-button > div{
     position: absolute;
     width: 100%;
     height: 2px;
@@ -109,29 +114,29 @@
     transition: 0.3s ease-in-out;
 }
 
-.header .menu-box .button > div:nth-child(1){
+.header .menu-box .hambuger-button > div:nth-child(1){
     top: 0;
 }
 
-.header .menu-box .button > div:nth-child(2){
+.header .menu-box .hambuger-button > div:nth-child(2){
     top: 50%;
     transform: translateY(-50%);
 }
 
-.header .menu-box .button > div:nth-child(3){
+.header .menu-box .hambuger-button > div:nth-child(3){
     bottom: 0;
 }
 
-.header .menu-box .button.active > div:nth-child(1){
+.header .menu-box .hambuger-button.active > div:nth-child(1){
     top: 50%;
     transform: translateY(-50%) rotate(45deg);
 }
 
-.header .menu-box .button.active > div:nth-child(2){
+.header .menu-box .hambuger-button.active > div:nth-child(2){
     opacity: 0;
 }
 
-.header .menu-box .button.active > div:nth-child(3){
+.header .menu-box .hambuger-button.active > div:nth-child(3){
     top: 50%;
     transform: translateY(-50%) rotate(-45deg);
 }

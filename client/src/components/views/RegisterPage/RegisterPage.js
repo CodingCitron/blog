@@ -1,5 +1,5 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheckCircle, faTimesCircle } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faCheckCircle, faTimesCircle } from "@fortawesome/free-solid-svg-icons"
 import './RegisterPage.css'
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'

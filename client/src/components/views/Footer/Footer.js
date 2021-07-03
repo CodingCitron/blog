@@ -24,18 +24,24 @@ function Footer(){
             <div className="inner">
                 <ul className="link">
                     <li>
-                        <a href="#">
-                            <FontAwesomeIcon icon={faInstagram} />
+                        <a href="https://www.instagram.com/xectler/?hl=ko" target="_blank">
+                            <FontAwesomeIcon icon={faInstagram} 
+                                className="insta-icon"
+                            />
                         </a>
                     </li>
                     <li>
-                        <a href="#">
-                            <FontAwesomeIcon icon={faYoutube} />
+                        <a href="https://www.youtube.com/channel/UCkM8-lzK4IaUTf_XJew951g/videos" target="_blank">
+                            <FontAwesomeIcon icon={faYoutube} 
+                                className="youtube-icon"
+                            />
                         </a>
                     </li>
                     <li>
-                        <a href="#">
-                            <FontAwesomeIcon icon={faGithub} />
+                        <a href="https://github.com/CodingCitron" target="_blank">
+                            <FontAwesomeIcon icon={faGithub} 
+                                className="github-icon"
+                            />
                         </a>
                     </li>
                 </ul>

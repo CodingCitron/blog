@@ -1,9 +1,9 @@
 import './CreatePage.css'
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react'
 import { useSelector } from 'react-redux'
-import SelectBox from './SelectBox';
+import SelectBox from './SelectBox'
 import QuillEditor from '../../editor/QuillEditor'
-import axios from 'axios';
+import axios from 'axios'
 
 const PrivateOption = [
     {value: 0, lable: "Private"},
@@ -104,7 +104,7 @@ function CreatePage(props){
                     onFilesChange={onFilesChange}
                 />
                 <div className="info">
-                    <button>등록하기</button>
+                    <button className="button">등록하기</button>
                 </div>
             </form>
         </div>

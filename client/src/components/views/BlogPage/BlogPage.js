@@ -11,6 +11,7 @@ function BlogPage(){
     })
 
     const [paging, setPaging] = useState([])
+    const [listLength, setListLength] = useState(0)
 
     useEffect(async () => {
         await axios
@@ -23,6 +24,7 @@ function BlogPage(){
                 if(res2.data.success) {
                     let divide = Math.ceil((res2.data.length)/setting.show),
                     page = Array.from({length: divide}, (v, i) => i + 1)
+                    setListLength(res2.data.length)
                     setPaging(page)
                 }else console.log('전체 글 개수를 가져오는데 실패 했습니다.')
             })
@@ -69,6 +71,7 @@ function BlogPage(){
                         </div>
                     </a>)
                 })}
+                {listLength === 0? '작성된 글이 없습니다.' : null}
             </div>
             <div className="blog-page-paging">
                 {paging && paging.map((pageList, index) => {

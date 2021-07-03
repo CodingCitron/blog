@@ -38,23 +38,6 @@
     transition: 0.3s ease-in-out;
 }
 
-.register-container .submit{
-    appearance: none;
-    outline: none;
-    border: none;
-    width: 100%;
-    padding: 0.5rem;
-    background: #6495ED;
-    color: white;
-    border-radius: 0.2rem;
-    cursor: pointer;
-    transition: 0.3s ease-in-out;
-}
-
-.register-container .submit:hover{
-    background: #85AFFF;
-}
-
 .register-container .row .title{
     position: relative;
 }

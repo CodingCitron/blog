@@ -31,7 +31,7 @@ function Header(props){
                     </ul>
                 </nav>
                 <div className="menu-box">
-                    <div className="button" onClick={navMenuButton}>
+                    <div className="hambuger-button" onClick={navMenuButton}>
                         <div></div>
                         <div></div>
                         <div></div>

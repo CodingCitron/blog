@@ -17,15 +17,15 @@ function App() {
     <BrowserRouter>
       <Header />
       <div className="layout">
-      <Switch>
-        <Route exact path="/" component={Auth(LandingPage, null)} />
-        <Route exact path="/login" component={Auth(LoginPage, false)} />
-        <Route exact path="/register" component={Auth(RegisterPage, false)} />
-        <Route exact path="/blog" component={Auth(BlogPage, null)} />
-        <Route exact path="/blog/post/:postId" component={Auth(PostPage, null)} />
-        <Route exact path="/post/insert" component={Auth(CreatePage, true)} />
-        <Route exact path="/post/update/:postId" component={Auth(UpdatePage, true)} />
-      </Switch>
+        <Switch>
+          <Route exact path="/" component={Auth(LandingPage, null)} />
+          <Route exact path="/login" component={Auth(LoginPage, false)} />
+          <Route exact path="/register" component={Auth(RegisterPage, false)} />
+          <Route exact path="/blog" component={Auth(BlogPage, null)} />
+          <Route exact path="/blog/post/:postId" component={Auth(PostPage, null)} />
+          <Route exact path="/post/insert" component={Auth(CreatePage, true)} />
+          <Route exact path="/post/update/:postId" component={Auth(UpdatePage, true)} />
+        </Switch>
       </div>
       <Footer />
     </BrowserRouter>

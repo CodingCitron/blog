@@ -8,6 +8,11 @@
     background-color: #6495ED;
 }
 
+.footer a{
+    color: inherit;
+    text-decoration: none;
+}
+
 .footer .inner{
     display: flex;
     flex-direction: column;
@@ -41,3 +46,19 @@
     position: fixed;
     bottom: 0;
 }
+
+/*
+radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+*/
+/* 
+.footer .insta-icon:hover{
+
+}
+
+.footer .youtube-icon:hover{
+
+}
+
+.footer .github-icon{
+
+} */

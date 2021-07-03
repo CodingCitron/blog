@@ -2,8 +2,8 @@ import React from 'react';
 import ReactQuill, { Quill } from 'react-quill';
 import "react-quill/dist/quill.snow.css";
 import './Quill.css'
-
 import axios from 'axios';
+
 const __ISMSIE__ = navigator.userAgent.match(/Trident/i) ? true : false;
 
 // Quill.register('modules/clipboard', PlainClipboard, true);
@@ -215,7 +215,19 @@ class QuillEditor extends React.Component {
 
     componentDidMount() {
         this._isMounted = true;
+    
     }
+
+    componentDidUpdate(prevProps) { //업데이트 구현
+        // 전형적인 사용 사례 (props 비교를 잊지 마세요)
+        if(this.props.updateValue){
+            if(this.props.updateValue !== prevProps.updateValue){
+                this.setState({
+                    editorHtml: this.props.updateValue
+                })
+            }
+        }
+      }
 
     componentWillUnmount() {
         this._isMounted = false;
@@ -360,7 +372,10 @@ class QuillEditor extends React.Component {
         }
     };
 
+    
+
     render() {
+
         return (
             <div>
                 <div id="toolbar">
@@ -388,7 +403,7 @@ class QuillEditor extends React.Component {
                     <button className="ql-blockquote" />
                     <button className="ql-clean" />
 
-                    
+        
 
                 </div>
                 <ReactQuill

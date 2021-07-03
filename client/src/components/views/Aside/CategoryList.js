@@ -1,16 +1,22 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 
 function CategoryList(props) {
+    const category = useRef();
+
     const [focus, setFocus] = useState(false)
 
     const onFocusHandler = (e) => {
         setFocus(!focus)
     }
 
+    useEffect(() => {
+        props.setEl1_height(category.current.offsetHeight)
+    }, [category])
+
     return (
-        <div className="category-list">
+        <div className="category-list" ref={category}>
             <form action="">
                 <label htmlFor="search" className={focus? 'search-box active' : 'search-box'}>
                     <input type="search" name="search" id="search" 

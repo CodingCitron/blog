@@ -34,29 +34,51 @@
 .post-page main{
     position: relative;
     min-height: 600px;
-    padding: 1rem 1rem 3rem;
+    padding: 1rem 1rem 4.5rem;
     margin-top: 2rem;
     border-radius: 0.2rem;
     box-shadow: 0 0 8px 0 rgba(17, 17, 17, 0.1);
     background-color: white;
 }
 
-.post-page main .tag{
+.post-page main .function{
+    display: flex;
+    justify-content: space-between;
     position: absolute;
+    left: 0;
     bottom: 1rem;
+    width: 100%;
+    padding: 0 1rem;
     margin-top: 1rem;
     font-size: 11px;
     color: #444;
 }
 
-.post-page main .tag span:first-child{
+.post-page main .function .tag{
+    width: 50%;
+}
+
+.post-page main .function .tag a{
+    color: inherit;
+    text-decoration: none;
+}
+
+.post-page main .function .tag a:first-child{
     font-size: 12px;
     margin-right: 0.5rem;
 }
 
-.post-page main .tag span:nth-child(n + 2){
+.post-page main .function .tag a:nth-child(n + 2){
     /* display: block; */
     padding: 0.3rem;
     background: lightgray;
     border-radius: 0.2rem;
+}
+
+.post-page main .function .post.disable{
+    display: none;
+}
+
+.post-page main .function .post .button{
+    margin-left: 0.5rem;
 }

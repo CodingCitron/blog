@@ -6,7 +6,7 @@ const { List } = require('../models/List')
 // STORAGE MULTER CONFIG
 let storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, 'uploads/');
+        cb(null, 'uploads/file');
     },
     filename: (req, file, cb) => {
         cb(null, `${Date.now()}_${file.originalname}`);
@@ -42,6 +42,33 @@ router.post('/insertList', (req, res) => {
     })
 })
 
+router.post('/updatePost', (req, res) => {
+    List.updateOne({ '_id': req.body.postId }, 
+        { 
+            title: req.body.title,
+            category: req.body.category,
+            content: req.body.content,
+            privacy: parseInt(req.body.privacy),
+            thumbnail: req.body.thumbnail
+         })
+         .exec((err) => {
+            if(err){ 
+                return res.json({ success: false, message: '글 수정 실패', err }),
+                console.log(err)
+            }
+            res.status(200).json({ success: true })
+        })
+})
+
+router.post('/deletePost', (req, res) => {
+    console.log(req.body)
+    List.deleteOne({ 'writer': req.body.postId })
+    .exec((err) => {
+        if (err) return res.status(400).send(err).console.log(err)
+        res.status(200).json({ success: true })
+    })
+})
+
 router.get('/getListLength', (req, res) => {
     const list = List.find()// 전체 리스트 불러오기.
     .count((err, count) => {
@@ -50,7 +77,6 @@ router.get('/getListLength', (req, res) => {
     }) 
 })
 
-//.populate("writer")
 router.get('/getList/:paging/show/:show', (req, res) => {
     const paging = parseInt(req.params.paging),
     show = parseInt(req.params.show)
@@ -63,8 +89,8 @@ router.get('/getList/:paging/show/:show', (req, res) => {
             if (err) return res.status(400).send(err).console.log(err)
             // list.createdAt = getDate(list.createdAt)
             res.status(200).json({ success: true, list })
-        });
-});
+        })
+})
 
 router.post('/getPost', (req, res) => {
     List.findOne({ '_id': req.body.postId })
