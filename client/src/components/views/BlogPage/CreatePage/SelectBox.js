@@ -1,6 +1,6 @@
+import React, { useState, useRef, useEffect } from 'react'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleUp, faAngleDown } from "@fortawesome/free-solid-svg-icons";
-import React, { useState, useRef, useEffect } from 'react'
 import './SelectBox.css'
 
 function SelectBox({ updateSelect, value }){

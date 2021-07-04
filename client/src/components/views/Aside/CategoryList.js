@@ -1,6 +1,6 @@
+import React, { useState, useRef, useEffect } from 'react'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import React, { useState, useRef, useEffect } from 'react'
 
 function CategoryList(props) {
     const category = useRef();
@@ -18,7 +18,7 @@ function CategoryList(props) {
     return (
         <div className="category-list" ref={category}>
             <form action="">
-                <label htmlFor="search" className={focus? 'search-box active' : 'search-box'}>
+                <label htmlFor="search" className={focus? 'search-box box-shadow-inset active' : 'search-box box-shadow-inset'}>
                     <input type="search" name="search" id="search" 
                     placeholder="search" 
                     onFocus={onFocusHandler} 

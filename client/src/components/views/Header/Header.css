@@ -5,13 +5,8 @@
     width: 100%;
     color: white;
     background: #6495ED;
-    box-shadow: 0 0 8px 1px rgba(17, 17, 17, 0.1);
+    box-shadow: 0 0 8px 0px rgba(17, 17, 17, 0.1);
     z-index: 10;
-}
-
-.header a{
-    color: inherit;
-    text-decoration: none;
 }
 
 .header-space{
@@ -152,8 +147,8 @@
     right: 0;
     width: 240px;
     min-height: 100vh;
-    color: white;
-    background: #6495ED;
+    background: white;
+    box-shadow: 0 0 8px 0px rgba(17, 17, 17, 0.1);
     transform: translateX(100%);
     transition: 0.3s ease-in-out;
     z-index: 5;
@@ -208,8 +203,9 @@ border-bottom: 1px solid #EED9AB; */
 }
 
 .nav-mobile .title{
-    font-size: 16px;
     padding: 0.5rem 0 0.2rem;
+    color: inherit;
+    font-size: 16px;
 }
 
 @media screen and (max-width: 768px) {

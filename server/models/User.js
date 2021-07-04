@@ -27,12 +27,8 @@ const userSchema = mongoose.Schema({
     },
     tokenExp: {
         type: Number
-    },
-    date :{
-        type: Date,
-        default: Date.now
     }
-})
+}, { timestamps: true })
 
 userSchema.pre('save', function(next){
     const user = this

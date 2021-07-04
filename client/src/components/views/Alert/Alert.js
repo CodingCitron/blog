@@ -1,8 +1,7 @@
+import React, { useState } from 'react'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faExclamationCircle } from "@fortawesome/free-solid-svg-icons"
 import './Alert.css'
-import React, { useState } from 'react'
-
 
 function Alert(props) {
 

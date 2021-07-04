@@ -23,9 +23,10 @@ app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })
 
-app.use('/api/user', require('./routes/user'));
-app.use('/api/list', require('./routes/list'));
-app.use('/uploads', express.static('uploads'));
+app.use('/api/user', require('./routes/user'))
+app.use('/api/list', require('./routes/list'))
+app.use('/api/comment', require('./routes/comment'))
+app.use('/uploads', express.static('uploads'))
 
 // Serve static assets if in production
 if (process.env.NODE_ENV === "production") {
@@ -33,6 +34,6 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
   // index.html for all page routes
   app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
-  });
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"))
+  })
 }

@@ -18,7 +18,7 @@ let storage = multer.diskStorage({
         }
         cb(null, true)
     }
-});
+})
 
 const upload = multer({ storage: storage }).single('file');
 
@@ -30,14 +30,14 @@ router.post('/uploadfiles', (req, res) => {
         return res.json({ 
             success: true, url: res.req.file.path, 
             fileName: res.req.file.filename 
-        });
-    });
-});
+        })
+    })
+})
 
 router.post('/insertList', (req, res) => {
     const list = new List(req.body)
     list.save((err, postInfo) => { 
-        if(err) return res.json({ success: false, message: '글 작성 실패', err }),console.log(err)
+        if(err) return res.json({ success: false, message: '글 작성 실패', err }), console.log(err)
         return res.status(200).json({ success: true, postInfo })
     })
 })
@@ -61,10 +61,9 @@ router.post('/updatePost', (req, res) => {
 })
 
 router.post('/deletePost', (req, res) => {
-    console.log(req.body)
     List.deleteOne({ 'writer': req.body.postId })
     .exec((err) => {
-        if (err) return res.status(400).send(err).console.log(err)
+        if (err) return res.status(400).send(err), console.log(err)
         res.status(200).json({ success: true })
     })
 })
@@ -72,7 +71,7 @@ router.post('/deletePost', (req, res) => {
 router.get('/getListLength', (req, res) => {
     const list = List.find()// 전체 리스트 불러오기.
     .count((err, count) => {
-        if(err) return res.status(400).send(err).console.log(err)
+        if(err) return res.status(400).send(err), console.log(err)
         return res.status(200).json({ success: true, length: count })
     }) 
 })
@@ -83,10 +82,10 @@ router.get('/getList/:paging/show/:show', (req, res) => {
     List.find()
         .skip(paging)
         .limit(show)
-        .populate('writer', 'name role')
+        .populate('writer', 'email name role image createdAt')
         .sort({ createdAt: 'desc' })
         .exec((err, list) => {
-            if (err) return res.status(400).send(err).console.log(err)
+            if (err) return res.status(400).send(err), console.log(err)
             // list.createdAt = getDate(list.createdAt)
             res.status(200).json({ success: true, list })
         })
@@ -94,11 +93,11 @@ router.get('/getList/:paging/show/:show', (req, res) => {
 
 router.post('/getPost', (req, res) => {
     List.findOne({ '_id': req.body.postId })
-        .populate('writer', 'name role')
+        .populate('writer', 'email name role image createdAt')
         .exec((err, post) => {
-            if (err) return res.status(400).send(err).console.log(err)
+            if (err) return res.status(400).send(err), console.log(err)
             res.status(200).json({ success: true, post })
         })
-});
+})
 
-module.exports = router;
+module.exports = router

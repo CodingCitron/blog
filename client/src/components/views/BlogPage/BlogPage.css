@@ -1,30 +1,20 @@
-.show-list{
-    width: 100%;
-}
-
 .show-list a{
     color: inherit;
     text-decoration: none;
 }
 
-.show-list > h2{
-    font-size: 24px;
-    margin: 2rem 0;
-    color: #444;
-}
-
-.blog-page{
+.list-page{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     column-gap: 1rem;
     row-gap: 1rem;
 }
 
-.blog-page h3{
+.list-page h3{
     font-size: 18px;
 }
 
-.blog-page .post{
+.list-page .post{
     position: relative;
     height: 420px;
     background-color: white;
@@ -34,18 +24,18 @@
     transition: 0.3s ease-in-out;
 }
 
-.blog-page .post:hover{
+.list-page .post:hover{
     box-shadow: 0 0 48px 0px rgba(17, 17, 17, 0.3);
 }
 
-.blog-page .post .title{
+.list-page .post .title{
     padding: 1.5rem 1rem 0.8rem;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
-.blog-page .post .content{
+.list-page .post .content{
     padding: 0 1rem;
     max-height: 50%;
     line-height: 1.5;
@@ -62,7 +52,7 @@
     -webkit-box-orient: vertical;
 }
 
-.blog-page .post .info{
+.list-page .post .info{
     display: flex;
     justify-content: flex-end;
     position: absolute;
@@ -72,17 +62,17 @@
     font-size: 12px;
 }
 
-.blog-page .post .info span{
+.list-page .post .info span{
     margin-left: 0.5rem;
     color: #6F7787;
 }
 
-/* .blog-page .post .title,
-.blog-page .post .content{
+/* .list-page .post .title,
+.list-page .post .content{
 
 } */
 
-.blog-page .thumbnail-image{
+.list-page .thumbnail-image{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -93,13 +83,13 @@
     /* filter: brightness(0.1); */
 }
 
-.blog-page-paging{
+.list-page-paging{
     display: flex;
     justify-content: center;
     margin-top: 3rem;
 }
 
-.blog-page-paging .btn{
+.list-page-paging .btn{
     padding: 0.35rem 0.5rem;
     margin: 0 0.2rem;
     background: white;
@@ -110,6 +100,6 @@
     transition: 0.3s ease-in-out;
 }
 
-.blog-page-paging .btn:hover{
+.list-page-paging .btn:hover{
     box-shadow: 0 0 8px 0px rgba(17, 17, 17, 0.3);
 }

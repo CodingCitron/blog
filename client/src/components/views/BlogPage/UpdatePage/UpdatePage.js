@@ -1,9 +1,9 @@
-import './UpdatePage.css'
 import React, { useState, useEffect, useRef } from 'react'
 import { useSelector } from 'react-redux'
-import SelectBox from '../CreatePage/SelectBox'
-import QuillEditor from '../../editor/QuillEditor'
 import axios from 'axios'
+import QuillEditor from '../../editor/QuillEditor'
+import SelectBox from '../CreatePage/SelectBox'
+import './UpdatePage.css'
 
 const PrivateOption = [
     {value: 0, lable: "Private"},

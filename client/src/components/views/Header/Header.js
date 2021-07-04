@@ -1,7 +1,7 @@
-import './Header.css'
 import React, { useState } from 'react'
 import { withRouter } from 'react-router-dom';
 import Submenu from './Submenu';
+import './Header.css'
 
 function Header(props){
     const [ToggleNav, setToggleNav] = useState(false)
@@ -11,7 +11,7 @@ function Header(props){
     }
 
     return (
-        <div>
+        <React.Fragment>
             <header className="header">
             <div className="inner">
                 <div className="logo">
@@ -60,7 +60,7 @@ function Header(props){
                 </div>
             </nav>
             <div className="header-space"></div>
-        </div>
+        </React.Fragment>
     )
 }
 

@@ -6,7 +6,17 @@ const commentSchema = mongoose.Schema({
         type: Schema.Types.ObjectId,
         ref: 'User'
     },
-    contents: String,
+    postId: {
+        type: Schema.Types.ObjectId,
+        ref: 'List'
+    },
+    responseTo: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    },
+    content: {
+        type: String
+    }
 }, { timestamps: true })
 
 const Comment = mongoose.model('Comment', commentSchema)

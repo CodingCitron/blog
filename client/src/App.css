@@ -7,11 +7,14 @@
     box-sizing: border-box;
 }
 
-ul, li{
+ul, 
+li{
     list-style: none;
 }
 
 a{
+    color: inherit;
+    text-decoration: none;
     cursor: pointer;
 }
 
@@ -23,27 +26,84 @@ body{
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background-color: #eee;
+    line-height: 1.3rem;
 }
 
 main{
     width: 100%;
+    color: #282E38;
 }
 
-main > h2{
+.content-color{
+    color: #282E38;
+}
+
+textarea{
+    width: 100%;
+    min-height: 96px;
+    padding: 0.5rem;
+    resize: none;
+    border: 1px solid lightgray;
+    border-radius: 0.2rem;
+    outline: none;
+    transition: border 0.3s ease-in-out;
+}
+
+textarea:focus{
+    border: 1px solid #85AFFF;
+}
+
+.box-shadow{
+    box-shadow: 0 0 8px rgb(17, 17, 17, 0.1);
+}
+
+.box-shadow:hover{
+    box-shadow: 0 0 24px  rgb(17, 17, 17, 0.1);
+}
+
+.box-shadow-inset{
+    box-shadow: 0 0 8px rgb(17, 17, 17, 0.1) inset;
+}
+
+main > h2,
+.show-list > h2{
     font-size: 24px;
     margin: 2rem 0;
-    color: #444;
 }
 
-h1, 
+h1,
+h2,
 .title{
-    color: #444;
+    color: #282E38;
+}
+
+.container{
+    width: 100%;
 }
 
 .layout{
     max-width: 1280px;
     padding: 1rem;
     margin: 0 auto;
+}
+
+.button{
+    padding: 0.5rem;
+    border: none;
+    color: white;
+    background-color: #6495ED;
+    border-radius: 0.2rem;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.comment-button{
+    border: none;
+    font-size: 12px;
+    color: #6F7787;
+    background-color: transparent;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
 }
 
 .submit{
@@ -64,38 +124,32 @@ h1,
     background: #85AFFF;
 }
 
-.button{
-    padding: 0.5rem;
-    border: none;
-    color: white;
-    background-color: #6495ED;
-    border-radius: 0.2rem;
-    cursor: pointer;
-    transition: 0.3s ease-in-out;
+code{
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
 }
 
- /*
-    #6495ED
 
+ /*
+    //주 색
+    #6495ED
     #85AFFF
 
-    #AEDB46
-
+    //회색 계열
+    #282E38
     #4F5A6E
     #6F7787
     lightgray
     #222
 
+    //강조 색
     #EBC063
     #EED9AB
 
+    //기능성
     #F0412F
+    #AEDB46
     F9897C
     F7887C !! alert 색
     rgba(240, 65, 47, 1)
 */
-
-code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-      monospace;
-  }

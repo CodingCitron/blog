@@ -1,6 +1,6 @@
-import './Aside.css'
 import React, { useState } from 'react'
 import CategoryList from './CategoryList'
+import './Aside.css'
 
 function Aside(){
 

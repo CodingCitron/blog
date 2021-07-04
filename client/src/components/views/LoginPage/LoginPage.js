@@ -1,8 +1,7 @@
-import './LoginPage.css'
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { loginUser } from '../../../_actions/user_action'
-
+import './LoginPage.css'
 
 function LoginPage(props) {
     const dispatch = useDispatch()

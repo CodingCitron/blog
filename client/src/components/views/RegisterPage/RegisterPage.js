@@ -1,9 +1,9 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faCheckCircle, faTimesCircle } from "@fortawesome/free-solid-svg-icons"
-import './RegisterPage.css'
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { registerUser, emailCheck } from '../../../_actions/user_action'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faCheckCircle, faTimesCircle } from "@fortawesome/free-solid-svg-icons"
+import './RegisterPage.css'
 
 function RegisterPage(props) {
     const dispatch = useDispatch()

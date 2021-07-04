@@ -1,7 +1,7 @@
+import React, { useEffect, useState } from 'react'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInstagram, faYoutube, faGithub } from "@fortawesome/free-brands-svg-icons"
 import '../Footer/Footer.css'
-import React, { useEffect, useState } from 'react'
 
 function Footer(){    
     const [fixed, setFixed] = useState(false)
@@ -20,7 +20,7 @@ function Footer(){
     }, [path])
 
     return(
-        <footer className={fixed === true ? 'footer fixed' : 'footer'} onChange={pathChange}>
+        <footer className={fixed === true? 'footer fixed' : 'footer'} onChange={pathChange}>
             <div className="inner">
                 <ul className="link">
                     <li>

@@ -1,0 +1,74 @@
+.comment-container{
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 0.2rem;
+    box-shadow: 0 0 8px 0 rgba(17, 17, 17, 0.1);
+    background-color: white;
+}
+
+.comment-container .form-layout{
+    display: flex;
+    margin-top: 1rem;
+}
+
+.comment-container .profile-image{
+    min-width: 48px;
+    width: 48px;
+    height: 48px;
+    margin-right: 1rem;
+    background-color: lightgray;
+    border-radius: 0.2rem;
+    overflow: hidden;
+}
+
+.profile-image image{
+    display: block;
+}
+
+.comment-container .comment-btn{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1rem;
+}
+
+.comment-container .comment-container-single{
+    padding: 1rem;
+    margin-top: 1rem;
+    border: 1px solid lightgray;
+    border-radius: 0.2rem;
+}
+
+.comment-container .comment-container-single .inner{
+    display: flex;
+}
+
+.comment-container .inner .content .writer{
+    margin-right: 0.5rem;
+    color: #282E38;
+    font-weight: 600;
+}
+
+.comment-container .inner .content .box{
+    margin-bottom: 1rem;
+}
+
+.comment-container .inner .content .box .info{
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 0.5rem;
+}
+
+.comment-container .inner{
+    padding-bottom: 1rem;
+    border-bottom: 1px solid lightgray;
+}
+
+.comment-container .answer{
+    margin: 1rem 0 1rem 4rem;
+}
+
+.comment-container .load-reply{
+    display: inline-block;
+    margin-top: 0.5rem;
+    color: #85AFFF;
+}
