@@ -38,32 +38,12 @@ function Comment(props) {
 
     const changeHandler = (e) => {
         setCommentValue(e.target.value)
+        console.log(props.commentList)
     }
     
     return (
         <div className="comment-container">
-            <h4>Comment ({props.length})</h4> {/* Comment (댓글 수) */}
-
-            {/* Comment List */}
-            {props.commentList && props.commentList.map((comment, index) => {
-                return (!comment.responseTo &&
-                    <div key={index} className="comment-container-single box-shadow-inset">
-                        <SingleComment 
-                            refreshFunction={props.refreshFunction} 
-                            comment={comment} 
-                            postId={props.postId} 
-                            userData={props.userData} 
-                        />  
-                        <ReplyComment
-                            refreshFunction={props.refreshFunction}
-                            parentCommentId={comment._id}
-                            postId={props.postId}
-                            commentList={props.commentList}
-                            userData={props.userData} 
-                        />
-                    </div>
-                )
-            })}
+            <h4>Comment ({props.commentLength})</h4> {/* Comment (댓글 수) */}
 
             {/* Root Comment Form */}
             <form onSubmit={submitHandler} >
@@ -79,6 +59,27 @@ function Comment(props) {
                     <button className="comment-button">댓글등록</button>
                 </div>
             </form>
+
+            {/* Comment List */}
+            {props.commentList && props.commentList.map((comment, index) => {
+                return (!comment.responseTo &&
+                    <div key={index} className="comment-container-single box-shadow-inset">
+                        <SingleComment 
+                            refreshFunction={props.refreshFunction} 
+                            comment={comment} 
+                            postId={props.postId} 
+                            userData={props.userData} 
+                        />  
+                        <ReplyComment
+                            refreshFunction={props.refreshFunction}
+                            parentCommentId={comment._id}
+                            postId={props.postId}
+                            commentList={props.commentList[index]}
+                            userData={props.userData} 
+                        />
+                    </div>
+                )
+            })}
         </div>
     )
 }

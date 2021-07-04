@@ -19,6 +19,7 @@ function PostPage(props){
     const [setting, setSetting] = useState({
         show: 10
     })
+    const [commentLength, setCommentLength] = useState(0)
 
     useEffect(() => {
         const variable = { postId: postId }
@@ -46,6 +47,15 @@ function PostPage(props){
                 setComments(response.data.comments)
             }else{
                 alert('댓글 정보를 불러오는데 실패했습니다.')
+            }
+        })
+
+        axios.get(`/api/comment/getCommentsLength/${postId}`)
+        .then(response => {
+            if(response.data.success){
+                setCommentLength(response.data.length)
+            }else{
+                console.log('댓글 목록을 가져오는데 실패 했습니다.')
             }
         })
     }, [])
@@ -159,7 +169,8 @@ function PostPage(props){
                         <Comment refreshFunction={refreshFunction} 
                             commentList={comments} 
                             userData={user.userData} 
-                            postId={postId} 
+                            postId={postId}
+                            commentLength={commentLength} 
                         />
                     </div>
                 </div>

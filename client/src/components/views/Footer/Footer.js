@@ -46,7 +46,7 @@ function Footer(){
                     </li>
                 </ul>
                 <div className="say">
-                    <p>This site was created from June 22nd</p>
+                    <p>This blog has been created since June 22.</p>
                     <p>Developer ParkSangMin</p>
                 </div>
             </div>

@@ -25,10 +25,11 @@ function SingleComment({ postId, userData, comment, refreshFunction }) {
             responseTo: comment._id
         }
 
-        axios.post('/api/comment/saveComment', variable)
+        axios.post('/api/comment/saveReply', variable) //답글 추가로 바꾸기
         .then(response => {
             if(response.data.success){
                 refreshFunction(response.data.result)
+                console.log(response.data)
                 setCommentValue('')
                 setToggleInput(false)
             }else{
@@ -53,12 +54,14 @@ function SingleComment({ postId, userData, comment, refreshFunction }) {
         <React.Fragment>
             <div className="inner container">
                 <div className="profile-image">
-                    {comment.writer.image? comment.writer.image : null}
+                    {comment.writer && comment.writer.image? comment.writer.image : null}
                 </div>
                 <div className="content">
                     <div className="box">
                         <div className="info">
-                            <div className="writer">{comment.writer.name}</div>
+                            <div className="writer">
+                                {comment.writer.name}
+                            </div>
                             <div className="date">
                                 <Moment format="YYYY.MM.DD HH:mm">
                                     {comment.createdAt}

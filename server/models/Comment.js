@@ -16,6 +16,10 @@ const commentSchema = mongoose.Schema({
     },
     content: {
         type: String
+    },
+    replyCount: {
+        type: Number,
+        default: 0
     }
 }, { timestamps: true })
 
