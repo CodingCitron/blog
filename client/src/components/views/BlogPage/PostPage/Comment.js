@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import axios from 'axios'
 import SingleComment from './SingleComment';
 import ReplyComment from './ReplyComment';
@@ -8,23 +8,21 @@ function Comment(props) {
 //{ commentList, userData, postId, refreshFunction, length }
     const textarea = useRef()
     const [commentValue, setCommentValue] = useState('')
+    const [commentLength, setCommentLength] = useState(props.commentLength)
 
     const submitHandler = (e) => {
         e.preventDefault()
         if(props.userData && !props.userData.isAuth){
             return alert('로그인 상태가 아닙니다.')
         }
-
         if(commentValue === ''){
             return alert('댓글을 입력하세요.')
         }
-
         const variable = {
             postId: props.postId,
             writer: props.userData._id,
             content: commentValue
         }
-
         axios.post('/api/comment/saveComment', variable)
         .then(response => {
             if(response.data.success){
@@ -38,12 +36,15 @@ function Comment(props) {
 
     const changeHandler = (e) => {
         setCommentValue(e.target.value)
-        console.log(props.commentList)
     }
+
+    useEffect(() => {
+        setCommentLength(props.commentLength)
+    }, [props.commentLength])
     
     return (
         <div className="comment-container">
-            <h4>Comment ({props.commentLength})</h4> {/* Comment (댓글 수) */}
+            <h4>Comment ({commentLength})</h4> {/* Comment (댓글 수) */}
 
             {/* Root Comment Form */}
             <form onSubmit={submitHandler} >

@@ -1,25 +1,22 @@
 .aside{
-    min-width: 240px;
-    margin-top: 2rem;
-    margin-right: 1rem;
+    min-width: 224px;
+    width: 224px;
+    margin-top: 3rem;
+    margin-right: 3rem;
 }
 
 .aside .category-list{
-    position: fixed;
-    min-width: 240px;
     padding: 1rem;
     background-color: white;
+    color: #282E38;
+    font-weight: 500;
+    font-size: 16px;
     border-radius: 0.2rem;
-    box-shadow: 0 0 8px 0px rgba(17, 17, 17, 0.1);
     transition: 0.3s ease-in-out;
 }
 
-.aside .category-list:hover{
-    box-shadow: 0 0 24px 0px rgba(17, 17, 17, 0.3);
-}
-
 .aside .category-list .all{
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
 }
 
 .aside h4{
@@ -59,16 +56,12 @@
     justify-content: center;
     width: 10%;
     margin-left: 0.5rem;
-    color: #4F5A6E;
+    color: #282E38;
     appearance: none;
     background: none;
     border: none;
     cursor: pointer;
     transition: 0.3s ease-in-out;
-}
-
-.aside .categories{
-    font-size: 16px;
 }
 
 .aside .list > li{
@@ -77,8 +70,8 @@
 
 .aside .categories{
     position: relative;
-    padding: 0.3rem 0;
     margin-bottom: 0.4rem;
+    color: #282E38;
 }
 
 .aside .categories.active,
@@ -90,7 +83,6 @@
 
 .aside .subheading > li{
     position: relative;
-    padding: 0.3rem 0;
     margin-bottom: 0.2rem;
 }
 

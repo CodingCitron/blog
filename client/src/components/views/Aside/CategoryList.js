@@ -1,22 +1,16 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState } from 'react'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
-function CategoryList(props) {
-    const category = useRef();
-
+function CategoryList() {
     const [focus, setFocus] = useState(false)
 
     const onFocusHandler = (e) => {
         setFocus(!focus)
     }
 
-    useEffect(() => {
-        props.setEl1_height(category.current.offsetHeight)
-    }, [category])
-
     return (
-        <div className="category-list" ref={category}>
+        <div className="category-list box-shadow">
             <form action="">
                 <label htmlFor="search" className={focus? 'search-box box-shadow-inset active' : 'search-box box-shadow-inset'}>
                     <input type="search" name="search" id="search" 
@@ -33,7 +27,7 @@ function CategoryList(props) {
                     <h4>
                         CATEGORIES
                     </h4>
-                    <div className="all"><a href="#">전체 글 보기</a></div>
+                    <div className="all"><a href="#">전체 글</a></div>
                     <ul className="list">
                         <li>
                             <div className="categories">

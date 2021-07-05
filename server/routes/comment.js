@@ -35,30 +35,28 @@ router.get('/getCommentsLength/:postId', (req, res) => {
     const postId = req.params.postId
     Comment.findOne({ 'postId': postId })// 전체 리스트 불러오기.
     .exists('responseTo', false)
-    .count((err, count) => {
+    .countDocuments((err, count) => {
         if(err) return res.status(400).send(err), console.log(err)
         return res.status(200).json({ success: true, length: count })
     }) 
 })
+
 //{ $inc: { 필드: 숫자 } }
 //답글 추가 + 상위 댓글의 하위 댓글 개수 추가
 router.post('/saveReply', (req, res) => {
-    console.log('답글 추가 작동')
-    Comment.find({ '_id': req.body.responseTo })
-    .updateOne({ $inc: { replyCount: 1 } })
-    .exec((err, result) => {
-        if(err) return res.json({ success: false, err })
-        res.status(200).json({ success: true, result })
-    })
-
     const comment = new Comment(req.body)
     comment.save((err, comment) => {
         if(err) return res.json({ success: false, err }), console.log(err)
         Comment.find({ '_id': comment._id })
         .populate('writer', 'email name role image createdAt')
-        .exec((err, result) => {
-            if(err) return res.json({ success: false, err })
-            res.status(200).json({ success: true, result })
+        .exec((addReplyErr, result) => {
+            if(addReplyErr) return res.json({ success: false, addReplyErr })
+            Comment.find({ '_id': req.body.responseTo })
+            .updateOne({ $inc: { replyCount: 1 } })
+            .exec((addReplyCountErr, addReplyCount) => {
+                if(err) return res.json({ success: false, addReplyCountErr })
+                res.status(200).json({ success: true, addReplyCount, result })
+            })
         })
     })
 })
@@ -71,10 +69,13 @@ router.post('/loadReply', (req, res) => {
     .populate('writer', 'email name role image createdAt')
     .sort({ createdAt: 'desc' })
     .exec((err, reply) => {
-        console.log(reply)
         if(err) return res.status(400).send(err), console.log(err)
         res.status(200).json({ success: true, reply })
     })
 })
+
+//전체 댓글 수 구하고 페이징
+
+//답글 페이징
 
 module.exports = router;

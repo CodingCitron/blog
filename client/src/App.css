@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,400;0,500;0,600;0,700;1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500&display=swap');
 
 *{
     margin: 0;
@@ -21,12 +21,12 @@ a{
 body{
     min-height: 100vh;
     font-size: 14px;
-    font-family: 'Mulish', 'Malgun Gothic', sans-serif;
+    font-family: 'Noto Sans KR', sans-serif;
     color: #6F7787;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background-color: #eee;
-    line-height: 1.3rem;
+    line-height: 1.2rem;
 }
 
 main{
@@ -54,25 +54,21 @@ textarea:focus{
 }
 
 .box-shadow{
-    box-shadow: 0 0 8px rgb(17, 17, 17, 0.1);
+    box-shadow: 0 0 8px rgba(17, 17, 17, 0.1);
 }
 
 .box-shadow:hover{
-    box-shadow: 0 0 24px  rgb(17, 17, 17, 0.1);
+    box-shadow: 0 0 24px rgba(17, 17, 17, 0.1);
 }
 
 .box-shadow-inset{
-    box-shadow: 0 0 8px rgb(17, 17, 17, 0.1) inset;
-}
-
-main > h2,
-.show-list > h2{
-    font-size: 24px;
-    margin: 2rem 0;
+    box-shadow: 0 0 8px rgba(17, 17, 17, 0.1) inset;
 }
 
 h1,
 h2,
+h3,
+h4,
 .title{
     color: #282E38;
 }
@@ -83,7 +79,7 @@ h2,
 
 .layout{
     max-width: 1280px;
-    padding: 1rem;
+    padding: 0 1rem;
     margin: 0 auto;
 }
 
@@ -95,6 +91,17 @@ h2,
     border-radius: 0.2rem;
     cursor: pointer;
     transition: 0.3s ease-in-out;
+}
+
+.button-only-text{
+    border: none;
+    color: #282E38;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.button-only-text:hover{
+    color: #EBC063
 }
 
 .comment-button{

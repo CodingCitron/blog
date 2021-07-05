@@ -64,7 +64,7 @@ function BlogPage(){
                 <div className="list-page" >
                     {lists && lists.map((list,index) => {
                         return(
-                        <a key={index} className="post" href={`/list/post/${list._id}`}>
+                        <a key={index} className="post box-shadow" href={`/list/post/${list._id}`}>
                             { list.thumbnail ? 
                             <img src={list.thumbnail} className="thumbnail-image"/>
                             : <div className="thumbnail-image"> 섬네일이 없습니다. </div>
@@ -89,7 +89,7 @@ function BlogPage(){
                 </div>
                 <div className="list-page-paging">
                     {paging && paging.map((pageList, index) => {
-                        return <a className="btn" key={index} onClick={() => getList(pageList)}>{pageList}</a>
+                        return <a className="btn box-shadow" key={index} onClick={() => getList(pageList)}>{pageList}</a>
                     })}
                 </div>
             </div>

@@ -4,46 +4,35 @@
 
 .post-page h1{
     font-size: 26px;
-    margin: 0.5rem 0;
+    margin: 0;
+    margin-bottom: 1rem;
 }
 
 .post-page .title{
     position: relative;
-    margin-bottom: 2.5rem;
-    border-style: solid;
-    border-image: linear-gradient(to left, 
-    transparent 5%, #6F7787 95%, transparent 100%);
-    border-image-slice: 1;
-    border-image-width: 0 0 1px 0;
+    margin-bottom: 2rem;
 }
 
 .post-page .title .info{
-    position: absolute;
-    top: 0.5rem;
-    right: 0;
-    margin-top: auto;
-    font-size: 12px;
-    text-align: right;
+    display: flex;
     color: #6F7787;
 }
 
 .post-page .title .info .date{
-    margin: 0.5rem 0;
+    margin: 0 0.5rem;
 }
 
 .post-page main{
     position: relative;
     min-height: 600px;
     padding: 1rem 1rem 4.5rem;
-    margin-top: 2rem;
+    margin-top: 3rem;
     border-radius: 0.2rem;
     box-shadow: 0 0 8px 0 rgba(17, 17, 17, 0.1);
     background-color: white;
 }
 
 .post-page main a{
-    color: #4F5A6E;
-    text-decoration: underline;
     font-weight: 600;
     transition: 0.3s ease-in-out;
 }
@@ -54,7 +43,7 @@
 
 .post-page main .content{
     font-size: 16px;
-    line-height: 2.0;
+    line-height: 1.8rem;
 }
 
 .post-page main .function{
@@ -67,12 +56,6 @@
     padding: 0 1rem;
     margin-top: 1rem;
     font-size: 14px;
-    color: white;
-}
-
-.post-page main .function a{
-    color: inherit;
-    text-decoration: none;
 }
 
 .post-page main .function .tag{
@@ -95,4 +78,9 @@
 .post-page main .function .post .button{
     margin-left: 0.5rem;
     font-weight: 400;
+}
+
+.post-page main .function a.button-only-text{
+    font-weight: 500;
+    margin: 0 0.2rem;
 }

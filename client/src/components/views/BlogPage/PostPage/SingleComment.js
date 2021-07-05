@@ -13,23 +13,19 @@ function SingleComment({ postId, userData, comment, refreshFunction }) {
         if(userData && !userData.isAuth){
             return alert('로그인 상태가 아닙니다.')
         }
-
         if(commentValue === ''){
             return alert('댓글을 입력하세요.')
         }
-
         const variable = {
             postId: postId,
             writer: userData._id,
             content: commentValue,
             responseTo: comment._id
         }
-
         axios.post('/api/comment/saveReply', variable) //답글 추가로 바꾸기
         .then(response => {
             if(response.data.success){
                 refreshFunction(response.data.result)
-                console.log(response.data)
                 setCommentValue('')
                 setToggleInput(false)
             }else{

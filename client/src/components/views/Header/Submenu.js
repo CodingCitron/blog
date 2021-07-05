@@ -30,7 +30,7 @@ function Submenu(props){
                     <li><a onClick={logout}>Logout</a></li>
                     <li><a href="/list/insert">Writing</a></li>
                     <li><a href="#">GuestBook</a></li>
-                    <li><a href="#">Dashboard</a></li>
+                    <li><a href="/admin">AdminPage</a></li>
                 </ul>
             )
         }else{

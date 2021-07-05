@@ -25,8 +25,6 @@
     justify-content: center;
     width: 100%;
     min-height: 100px;
-    color: #F0412F;
-    font-weight: bold;
     background: white;
     border-radius: 0.2rem;
 }
@@ -42,7 +40,6 @@
 }
 
 .background-black .modal .inner .prompt .button{
-    text-decoration: underline;
     padding: 0;
     margin: 0.5rem 0.5rem 0;
     color: white;

@@ -70,7 +70,7 @@ router.post('/deletePost', (req, res) => {
 
 router.get('/getListLength', (req, res) => {
     const list = List.find()// 전체 리스트 불러오기.
-    .count((err, count) => {
+    .countDocuments((err, count) => {
         if(err) return res.status(400).send(err), console.log(err)
         return res.status(200).json({ success: true, length: count })
     }) 

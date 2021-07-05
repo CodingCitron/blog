@@ -58,7 +58,6 @@ function ReplyComment(props) {
                 </React.Fragment>
         ))
     
-
     return (
         <>
             {childCommentNumber > 0 && 
@@ -74,7 +73,6 @@ function ReplyComment(props) {
             }
         </>
     )
-     
 }
 
 export default ReplyComment

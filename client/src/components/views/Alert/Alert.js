@@ -17,20 +17,20 @@ function Alert(props) {
     }
 
     return (
-        <div className="background-black">
+        <div className="background-black" style={{ fontWeight: '600', fontSize: '16px' }}>
             <div className="modal">
                 <div className="inner"
-                style={props.style}>
+                style={{ color: '#282E38' }}>
                     <div>
-                        <span className="icon">
+                        <span className="icon" style={{ color: '#282E38' }}>
                             <FontAwesomeIcon icon={faExclamationCircle} />
                         </span>
                         {props.message}
                     </div>
                     {props.prompt === true?
                         <div className="prompt">
-                            <button onClick={closeBtn} className="button">취소</button>
-                            <button onClick={setDeletePost} className="button">확인</button>
+                            <button onClick={closeBtn} style={{ fontWeight: '600', color: '#282E38' }}className="button">취소</button>
+                            <button onClick={setDeletePost} style={{ fontWeight: '600', color: '#282E38' }} className="button">확인</button>
                         </div>
                         : null
                     }

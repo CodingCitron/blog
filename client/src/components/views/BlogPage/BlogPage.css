@@ -1,6 +1,15 @@
+.show-list{
+    margin-top: 3rem;
+}
+
 .show-list a{
     color: inherit;
     text-decoration: none;
+}
+
+.show-list > h2{
+    margin-bottom: 2rem;
+    font-size: 24px;
 }
 
 .list-page{
@@ -18,14 +27,9 @@
     position: relative;
     height: 420px;
     background-color: white;
-    box-shadow: 0 0 8px 0px rgba(17, 17, 17, 0.1);
     border-radius: 0.2rem;
     overflow: hidden;
     transition: 0.3s ease-in-out;
-}
-
-.list-page .post:hover{
-    box-shadow: 0 0 48px 0px rgba(17, 17, 17, 0.3);
 }
 
 .list-page .post .title{
@@ -86,20 +90,14 @@
 .list-page-paging{
     display: flex;
     justify-content: center;
-    margin-top: 3rem;
+    margin-top: 2rem;
 }
 
 .list-page-paging .btn{
-    padding: 0.35rem 0.5rem;
+    padding: 0.2rem 0.5rem;
     margin: 0 0.2rem;
     background: white;
-    border: 1px solid lightgray;
     border-radius: 0.2rem;
-    box-shadow: 0 0 4px 0px rgba(17, 17, 17, 0.1);
     font-size: 12px;
     transition: 0.3s ease-in-out;
-}
-
-.list-page-paging .btn:hover{
-    box-shadow: 0 0 8px 0px rgba(17, 17, 17, 0.3);
 }

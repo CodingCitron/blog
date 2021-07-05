@@ -68,7 +68,7 @@ function PostPage(props){
                 setidCompare(true)
             }
         }
-    }, [post.writer]) // 가장 나중에 가져오는 값을 넣어야 된다.
+    }, [user.userData, post.writer]) // undefined 값 둘다 넣어줘야함
 
     const openModal = (e) => {
         e.preventDefault()
@@ -109,9 +109,23 @@ function PostPage(props){
         props.history.push(`/list/update/${postId}`)
     }
 
+    // 현재 답글 에러 있음 로직 수정해야함
+    // 더하기 부분은 수정 완료
     const refreshFunction = (newComment) => {
-        setComments(comments.concat(newComment))
+        setComments([
+            ...newComment,
+            ...comments 
+        ])
+
+        if(newComment[0] && newComment[0].responseTo === undefined){
+            setCommentLength(commentLength + 1)
+        }
     }
+
+    useEffect(() => { // 최적화 에러 나옴
+        if(comments.length < (setting.show + 1)) return
+            setComments(comments.slice(0, -1))
+    }, [comments])
 
     Comment.defaultProps ={
         length: 0
@@ -149,18 +163,14 @@ function PostPage(props){
                                 <a href="#">태그 예시</a>
                             </div>
                             <div className={idCompare === true? 'post' : 'post disable'}>
-                                <a className="button" onClick={openModal}>삭제</a>
-                                <a className="button" onClick={update}>수정</a>
+                                <a className="button-only-text" onClick={openModal}>삭제</a>/
+                                <a className="button-only-text" onClick={update}>수정</a>
                             </div>
                         </div>
                         {modal === true? 
                         <Alert 
                             message="정말 삭제하실 건가요?" 
                             setModal={setModal}
-                            style={{
-                                        background: '#F7887C',
-                                        color: 'white'
-                                    }}
                             prompt={true}
                             setDeletePost={setDeletePost}
                         /> : null}

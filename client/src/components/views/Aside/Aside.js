@@ -1,14 +1,16 @@
-import React, { useState } from 'react'
+import React from 'react'
 import CategoryList from './CategoryList'
+import Profile from '../Profile/Profile';
 import './Aside.css'
 
 function Aside(){
 
-    const [el1_height, setEl1_height] = useState(0);
-
     return(
-        <aside className="aside" style={{ height: `${el1_height}px` }}>
-           <CategoryList setEl1_height={setEl1_height}/>
+        <aside className="aside" >
+            <div>
+                <Profile />
+                <CategoryList />
+            </div>
         </aside>
     )
 }
