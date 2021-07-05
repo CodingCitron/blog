@@ -1,0 +1,10 @@
+my app
+https://agile-peak-09123.herokuapp.com/
+
+내 프로젝트를 위한 heroku 저장소
+https://git.heroku.com/agile-peak-09123.git
+
+헤로쿠 서비스 사용하기
+https://www.youtube.com/watch?v=qdoiwouykAg
+
+"heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client" 
