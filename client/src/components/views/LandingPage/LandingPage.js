@@ -24,7 +24,7 @@ function LandingPage(props){
     return (
         <div className="ladingPage">
             <Aside />
-            <div>
+            <div style={{ width: '100%' }}>
                 <div className="record" style={record}>
                     <h1 style={h1}>
                         고치거나, 추가 해야할 것 !

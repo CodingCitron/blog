@@ -1,8 +1,10 @@
 import React, { useRef, useState, useEffect } from 'react'
+import { useSelector } from 'react-redux';
 import Moment from 'react-moment';
 import axios from 'axios'
 
 function SingleComment({ postId, userData, comment, refreshFunction }) {
+    const user = useSelector(state => state.user)
     const [toggleInput, setToggleInput] = useState(false)
     const [commentValue, setCommentValue] = useState('')
 
@@ -18,7 +20,7 @@ function SingleComment({ postId, userData, comment, refreshFunction }) {
         }
         const variable = {
             postId: postId,
-            writer: userData._id,
+            writer: user.userData._id,
             content: commentValue,
             responseTo: comment._id
         }

@@ -1,9 +1,10 @@
 import axios from 'axios'
+import { useSelector } from 'react-redux'
 import React, { useState, useEffect } from 'react'
 import SingleComment from './SingleComment'
 
 function ReplyComment(props) {
-
+    const user = useSelector(state => state.user)
     const [childCommentNumber, setChildCommentNumber] = useState(0)
     const [reply, setReply] = useState([])
     const [openReplyComments, setOpenReplyComments] = useState(false)
@@ -42,7 +43,6 @@ function ReplyComment(props) {
                                 refreshFunction={props.refreshFunction} 
                                 comment={_reply} 
                                 postId={props.postId} 
-                                userData={props.userData} 
                             />
                             <ReplyComment
                                 refreshFunction={props.refreshFunction} 
@@ -52,7 +52,6 @@ function ReplyComment(props) {
                                 postId={props.postId}
                                 commentList={reply[index]} 
                                 /* <<부모의 답글 개수를 전달해야 한다. */
-                                userData={props.userData} 
                             />
                         </div>
                 </React.Fragment>

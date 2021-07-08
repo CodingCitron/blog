@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
+import { useSelector } from 'react-redux';
 import axios from 'axios'
 import SingleComment from './SingleComment';
 import ReplyComment from './ReplyComment';
@@ -6,6 +7,7 @@ import './Comment.css'
 
 function Comment(props) {
 //{ commentList, userData, postId, refreshFunction, length }
+    const user = useSelector(state => state.user)
     const textarea = useRef()
     const [commentValue, setCommentValue] = useState('')
     const [commentLength, setCommentLength] = useState(props.commentLength)
@@ -20,7 +22,7 @@ function Comment(props) {
         }
         const variable = {
             postId: props.postId,
-            writer: props.userData._id,
+            writer: user.userData._id,
             content: commentValue
         }
         axios.post('/api/comment/saveComment', variable)
@@ -69,14 +71,12 @@ function Comment(props) {
                             refreshFunction={props.refreshFunction} 
                             comment={comment} 
                             postId={props.postId} 
-                            userData={props.userData} 
                         />  
                         <ReplyComment
                             refreshFunction={props.refreshFunction}
                             parentCommentId={comment._id}
                             postId={props.postId}
                             commentList={props.commentList[index]}
-                            userData={props.userData} 
                         />
                     </div>
                 )

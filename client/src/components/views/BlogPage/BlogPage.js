@@ -3,6 +3,7 @@ import Moment from 'react-moment';
 import axios from 'axios'
 import Loader from '../Loading/Loader';
 import './BlogPage.css'
+import Paging from './Paging';
 
 function BlogPage(){
 
@@ -11,8 +12,9 @@ function BlogPage(){
     const [paging, setPaging] = useState([])
     const [listLength, setListLength] = useState(0)
     const [setting, setSetting] = useState({
-        show: 9,
+        show: 1,
     })
+    const [nowPage, setNowPage] = useState(1)
 
     useEffect(async () => {
         await axios
@@ -48,6 +50,7 @@ function BlogPage(){
             if(response.data.success){
                 setLists(response.data.list)
                 window.scrollTo({ top: 0 })
+                setNowPage(page)
             }else{
                 console.log('글 목록을 가져오는데 실패 했습니다.')
             }
@@ -87,11 +90,7 @@ function BlogPage(){
                     })}
                     {listLength === 0? '작성된 글이 없습니다.' : null}
                 </div>
-                <div className="list-page-paging">
-                    {paging && paging.map((pageList, index) => {
-                        return <a className="btn box-shadow" key={index} onClick={() => getList(pageList)}>{pageList}</a>
-                    })}
-                </div>
+                <Paging paging={paging} getList={getList} nowPage={nowPage} />
             </div>
         </>
     )

@@ -112,6 +112,7 @@ function PostPage(props){
     // 현재 답글 에러 있음 로직 수정해야함
     // 더하기 부분은 수정 완료
     const refreshFunction = (newComment) => {
+        console.log(newComment[0])
         setComments([
             ...newComment,
             ...comments 
@@ -178,7 +179,6 @@ function PostPage(props){
                     <div>
                         <Comment refreshFunction={refreshFunction} 
                             commentList={comments} 
-                            userData={user.userData} 
                             postId={postId}
                             commentLength={commentLength} 
                         />

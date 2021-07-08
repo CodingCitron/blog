@@ -17,8 +17,8 @@ function LoginPage(props) {
             setBody({
                 email: localStorage.getItem('email'),
                 password: ''
-            });
-            setIsRemember(true);
+            })
+            setIsRemember(true)
        }
     }, [])
 
@@ -64,9 +64,9 @@ function LoginPage(props) {
         <div className="login-container">
             <form action="#" name="loginForm" onSubmit={onSubmitHandler}>
                 <div className="row">
-                    <input type="text" placeholder="Email" name="email" autoFocus autoComplete="on"
+                    <input type="text" placeholder="Email" name="email" value={body.email} autoFocus autoComplete="on"
                     onChange={handleChange}
-                    defaultValue={isRemember ? localStorage.getItem('email') : ''}/>
+                    />
                     <div className="message">
                         
                     </div>

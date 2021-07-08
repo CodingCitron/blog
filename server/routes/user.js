@@ -14,10 +14,9 @@ router.post('/register', (req, res) => {
 router.post('/emailCheck', (req, res) => {
     User.findOne({ email: req.body.email }, (err, user) => {
         if(!user) {
-        return res.json({ emailCheck: true, message: '중복된 이메일이 없습니다.' })
+            return res.json({ emailCheck: true, message: '중복된 이메일이 없습니다.' })
         }else if(user){
-        console.log(req.body.email + ' 머지? ')
-        return res.json({ emailCheck: false, message: '중복된 이메일입니다.' })
+            return res.json({ emailCheck: false, message: '중복된 이메일입니다.' })
         }
         if(err) return res.status(400).send(err)
     })
@@ -30,13 +29,13 @@ router.post('/login', (req, res) => {
         user.comparePassword(req.body.password, (err, isMatch) => {
         if(!isMatch) return res.json({ loginSuccess: false, message: '비밀번호가 틀렸습니다.' })
         
-        user.generateToken((err, user) => {
-            const cookieConfig = { httpOnly: true, maxAge: 7200000 };
+            user.generateToken((err, user) => {
+                const cookieConfig = { httpOnly: true, maxAge: 7200000 };
 
-            if(err) return res.status(400).send(err)
-            res.cookie('x_auth', user.token, cookieConfig).status(200)
-            .json({ loginSuccess: true, userId: user._id })
-        })
+                if(err) return res.status(400).send(err)
+                res.cookie('x_auth', user.token, cookieConfig).status(200)
+                .json({ loginSuccess: true, userId: user._id })
+            })
         })
     })
 })
